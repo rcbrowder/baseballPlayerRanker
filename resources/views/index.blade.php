@@ -10,9 +10,9 @@
         <style>
             .grow:hover
             {
-            -webkit-transform: scale(1.3);
-            -ms-transform: scale(1.3);
-            transform: scale(1.3);
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
             transition-duration: .3s;
             }
 
