@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
         <style>
+
             .grow:hover
             {
             -webkit-transform: scale(1.2);
@@ -17,6 +18,7 @@
             }
 
             .outerdiv {
+                position: relative;
                 overflow: hidden;
                 min-width: 400px !important;
             }
@@ -26,8 +28,9 @@
                 height: 100%;
                 background-image: url(https://cdn-images-1.medium.com/max/1280/1*luSmy-qRh-0Ij5XfMhFjsw.jpeg);
                 background-size: cover;
-                background-position: 20%;
+                background-position: 25%;
                 transition: all 1s ease;
+                z-index: 1;
             }
 
             #pitcherBG {
@@ -37,7 +40,27 @@
                 background-size: cover;
                 background-position: center;
                 transition: all 1s ease;
+                z-index: 1;
             }
+
+            .myButtons {
+                position: absolute;
+                z-index: 2;
+                top: 45%;
+                left: 50%;
+                font-size: 3em;
+                margin-left: -75px;
+            }
+
+            #overlayTitle {
+                position: absolute;
+                z-index: 3;
+                background: transparent;
+                top: 20%;
+                left: 50%;
+                margin-left: -45px;
+            }
+
 
 
         </style>
@@ -46,16 +69,21 @@
 
     <body class="container-fluid h-100 p-0">
 
+        <div id="overlayTitle">
+            Player Ranker
+        </div>
+
         <div class="d-flex flex-wrap h-100">
 
             <div id="batterCol" class="flex-fill outerdiv">
-                <div id="batterBG" class="grow">
-                </div>
+                <button type="button" class="btn btn-secondary btn-lg myButtons">Batters</button>
+                <div id="batterBG" class="grow"></div>
+
             </div>
 
             <div id="pitcherCol" class="flex-fill outerdiv">
-                <div id="pitcherBG" class="grow">
-                </div>
+                <button type="button" class="btn btn-secondary btn-lg myButtons">Pitchers</button>
+                <div id="pitcherBG" class="grow"></div>
             </div>
         </div>
 
