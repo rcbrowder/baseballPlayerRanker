@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,7 @@
     <!-- Favicon -->
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA7+/vAP///wBCQv8AtbW1AM7OzgAAAMYA3t7eAOfn5wD39/cAwP/AAAAA/wC9vb0AxsbGANbW1gAAAAAAqqqgAAAKqqqqoA3WbEAKqqoFVVu13ECqoF7nfuZdxAqg53d3e+XcCgd3gRh3bl1AB4cXERh7ZcADsXmREYfrYAOxmZmRh+tgCBOyKZF3ddAIGSspkXd10KAZIrmRd+UKoBGZMRd35QqqAREbuH5QqqqgCIM3cAqqqqqgAAAKqqr4HwAA4AcAAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACAAQAAwAMAAOAHAAD4HwAA" rel="icon" type="image/x-icon" />
 </head>
-<body>
+<body class="container-fluid h-100 p-0">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
@@ -74,7 +74,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="h-100">
             @yield('content')
         </main>
     </div>

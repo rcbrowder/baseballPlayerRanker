@@ -94,3 +94,27 @@
     </body>
 
 </html> -->
+
+
+@section('content')
+
+
+    <div id="overlayTitle">
+        Player Ranker
+    </div>
+
+    <div class="d-flex flex-wrap h-100">
+
+        <div id="batterCol" class="flex-fill outerdiv">
+            <button type="button" class="btn btn-secondary btn-lg myButtons">Batters</button>
+            <div id="batterBG" class="grow"></div>
+
+        </div>
+
+        <div id="pitcherCol" class="flex-fill outerdiv">
+            <button type="button" class="btn btn-secondary btn-lg myButtons">Pitchers</button>
+            <div id="pitcherBG" class="grow"></div>
+        </div>
+    </div>
+
+@endsection
