@@ -71,9 +71,9 @@
 
     <body class="container-fluid h-100 p-0">
 
-        <div id="overlayTitle">
+        <!-- <div id="overlayTitle">
             Player Ranker
-        </div>
+        </div> -->
 
         <div class="d-flex flex-wrap h-100">
 
