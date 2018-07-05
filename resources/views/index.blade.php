@@ -22,6 +22,8 @@
 
         <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA7+/vAP///wBCQv8AtbW1AM7OzgAAAMYA3t7eAOfn5wD39/cAwP/AAAAA/wC9vb0AxsbGANbW1gAAAAAAqqqgAAAKqqqqoA3WbEAKqqoFVVu13ECqoF7nfuZdxAqg53d3e+XcCgd3gRh3bl1AB4cXERh7ZcADsXmREYfrYAOxmZmRh+tgCBOyKZF3ddAIGSspkXd10KAZIrmRd+UKoBGZMRd35QqqAREbuH5QqqqgCIM3cAqqqqqgAAAKqqr4HwAA4AcAAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACAAQAAwAMAAOAHAAD4HwAA" rel="icon" type="image/x-icon" />
 
+        <link href="https://fonts.googleapis.com/css?family=Cambay|Carrois+Gothic+SC|Roboto" rel="stylesheet">
+
         <style>
 
             .grow:hover
@@ -67,7 +69,17 @@
                 margin-left: -110px;
                 opacity: .9;
                 letter-spacing: 5px;
+                /* background-color: transparent;
+                border-width: 10px;
+                border-color: black;
+                color: black;
+                font-family: 'Cambay', sans-serif; */
+                box-shadow: 5px 5px 5px #222222;
             }
+
+            /* .myButtons:hover {
+                background-color: transparent;
+            } */
 
             #overlayTitle {
                 position: absolute;
@@ -153,13 +165,13 @@
         <div class="d-flex flex-wrap h-100">
 
             <div id="batterCol" class="flex-fill outerdiv">
-                <a href="{{ url('/batters') }}"><button type="button" class="btn btn-secondary btn-lg myButtons">Batters</button></a>
+                <a href="{{ url('/batters') }}"><button type="button" class="btn btn-secondary btn-lg rounded-0 boarder boarder-dark myButtons"><strong>Batters</strong></button></a>
                 <div id="batterBG" class="grow"></div>
 
             </div>
 
             <div id="pitcherCol" class="flex-fill outerdiv">
-                <a href="{{ url('/pitchers') }}"><button type="button" class="btn btn-secondary btn-lg myButtons" href="/pitchers">Pitchers</button></a>
+                <a href="{{ url('/pitchers') }}"><button type="button" class="btn btn-secondary btn-lg rounded-0 boarder boarder-dark myButtons" href="/pitchers"><strong>Pitchers</strong></button></a>
                 <div id="pitcherBG" class="grow"></div>
             </div>
         </div>
