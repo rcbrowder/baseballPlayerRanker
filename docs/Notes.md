@@ -32,3 +32,16 @@ User {
     category_config:
 }
 ```
+
+#### Title/Description
+
+<h1>*Fantasy Baseball Player Ranker*</h1>
+**Custom rankings made easy.**
+
+This site makes it easy to generate batter and pitcher rankings for custom head-to-head leagues.
+
+Different leagues use different categories and the sites that host the leagues (Yeahoo!, ESPN, etc.) don't always have their ranking algorithm customized to each leagues specific settings. PlayerRanker makes it easy.
+
+1. Pick your categories.
+2. Click Rank 'Em!
+3. Login and save your selections!
