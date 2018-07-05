@@ -40,6 +40,12 @@
                 background-size: cover;
             }
 
+            .navbar {
+                position: absolute;
+                background-color: transparent;
+                z-index: 3;
+            }
+
         </style>
 
     </head>
