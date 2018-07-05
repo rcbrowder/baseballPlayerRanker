@@ -64,7 +64,9 @@
                 top: 45%;
                 left: 50%;
                 font-size: 3em;
-                margin-left: -75px;
+                margin-left: -110px;
+                opacity: .9;
+                letter-spacing: 5px;
             }
 
             #overlayTitle {
