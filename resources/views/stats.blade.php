@@ -46,6 +46,28 @@
                 z-index: 3;
             }
 
+            #categorySelector {
+                position: absolute;
+                z-index: 3;
+                background-color: white;
+                margin-right: 8%;
+                margin-left: 8%;
+                margin-top: 60px;
+                height: 35%;
+                width: 84%;
+            }
+
+            #display {
+                position: absolute;
+                z-index: 3;
+                background-color: white;
+                margin-right: 4%;
+                margin-left: 4%;
+                margin-top: 400px;
+                height: 40%;
+                width: 92%;
+            }
+
         </style>
 
     </head>
@@ -107,7 +129,13 @@
 
             <div id="categorySelector">
 
-                
+
+
+            </div>
+
+            <div id="display">
+
+
 
             </div>
 
