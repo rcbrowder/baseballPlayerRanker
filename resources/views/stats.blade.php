@@ -63,8 +63,8 @@
                 background-color: white;
                 margin-right: 4%;
                 margin-left: 4%;
-                margin-top: 400px;
-                height: 40%;
+                margin-top: 375px;
+                height: 45%;
                 width: 92%;
             }
 
@@ -129,11 +129,11 @@
 
             <div id="categorySelector">
 
-
+                
 
             </div>
 
-            <div id="display">
+            <div id="display" class="d-flex">
 
 
 
