@@ -153,13 +153,13 @@
         <div class="d-flex flex-wrap h-100">
 
             <div id="batterCol" class="flex-fill outerdiv">
-                <button type="button" class="btn btn-secondary btn-lg myButtons">Batters</button>
+                <a href="{{ url('/batters') }}"><button type="button" class="btn btn-secondary btn-lg myButtons">Batters</button></a>
                 <div id="batterBG" class="grow"></div>
 
             </div>
 
             <div id="pitcherCol" class="flex-fill outerdiv">
-                <button type="button" class="btn btn-secondary btn-lg myButtons">Pitchers</button>
+                <a href="{{ url('/pitchers') }}"><button type="button" class="btn btn-secondary btn-lg myButtons" href="/pitchers">Pitchers</button></a>
                 <div id="pitcherBG" class="grow"></div>
             </div>
         </div>
