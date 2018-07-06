@@ -40,10 +40,21 @@
                 background-size: cover;
             }
 
-            .navbar {
+            #auth {
                 position: absolute;
                 background-color: transparent;
                 z-index: 3;
+            }
+
+            #navbarNavAltMarkup {
+                height: 95%;
+                margin-top: 50px;
+                margin-bottom: 20px;
+            }
+
+            #display {
+                background-color: white;
+                margin: 50px 20px 20px 20px;
             }
 
             /* #categorySelector {
@@ -68,6 +79,8 @@
                 width: 92%;
             } */
 
+
+
         </style>
 
     </head>
@@ -75,7 +88,7 @@
     <body>
 
         <div id="app">
-            <nav class="navbar navbar-expand navbar-light navbar-laravel">
+            <nav id="auth" class="navbar navbar-expand navbar-dark navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
@@ -123,9 +136,32 @@
             </nav>
         </div>
 
-        <div id="statspage">
+        <div id="statspage" class="container-fluid">
+            <div class="row h-100">
+                <nav id="sidebar" class="navbar navbar-expand-sm navbar-dark col-md-2">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse bg-dark" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <ul>
+                                <li class="nav-item nav-link" href="#">Home</li>
+                                <li class="nav-item nav-link" href="#">Features</li>
+                                <li class="nav-item nav-link" href="#">Pricing</li>
+                                <li class="nav-item nav-link" href="#">Disabled</li>
+                                <li class="nav-item nav-link" href="#">Home</li>
+                                <li class="nav-item nav-link" href="#">Features</li>
+                                <li class="nav-item nav-link" href="#">Pricing</li>
+                                <li class="nav-item nav-link" href="#">Disableddddddddddddd</li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
 
-
+                <div id="display" class="col">
+                </div>
+            </div>
+        </div>
 
 
             <!-- <div id="categorySelector">
@@ -145,7 +181,6 @@
             </div> -->
 
 
-        </div>
 
 
 
