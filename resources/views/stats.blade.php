@@ -46,7 +46,7 @@
                 z-index: 3;
             }
 
-            #categorySelector {
+            /* #categorySelector {
                 position: absolute;
                 z-index: 3;
                 background-color: white;
@@ -66,7 +66,7 @@
                 margin-top: 375px;
                 height: 45%;
                 width: 92%;
-            }
+            } */
 
         </style>
 
@@ -75,14 +75,12 @@
     <body>
 
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <nav class="navbar navbar-expand navbar-light navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
@@ -127,9 +125,16 @@
 
         <div id="statspage">
 
-            <div id="categorySelector">
 
-                
+
+
+            <!-- <div id="categorySelector">
+
+                <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <input type="checkbox" checked autocomplete="off">Runs
+                    </label>
+                </div>
 
             </div>
 
@@ -137,7 +142,7 @@
 
 
 
-            </div>
+            </div> -->
 
 
         </div>
