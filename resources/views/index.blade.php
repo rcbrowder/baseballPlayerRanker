@@ -46,7 +46,7 @@
                 background-image: url(https://cdn-images-1.medium.com/max/1280/1*luSmy-qRh-0Ij5XfMhFjsw.jpeg);
                 background-size: cover;
                 background-position: 25%;
-                transition: all 1s ease;
+                transition: all 2s ease;
                 z-index: 1;
             }
 
@@ -56,7 +56,7 @@
                 background-image: url(https://cdn-s3.si.com/styles/marquee_large_2x/s3/images/GettyImages-866042018.jpg?itok=yNdOvOWi);
                 background-size: cover;
                 background-position: center;
-                transition: all 1s ease;
+                transition: all 2s ease;
                 z-index: 1;
             }
 
