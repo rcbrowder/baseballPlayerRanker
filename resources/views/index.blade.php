@@ -72,8 +72,8 @@
                 /* background-color: transparent;
                 border-width: 10px;
                 border-color: black;
-                color: black;
-                font-family: 'Cambay', sans-serif; */
+                color: black; */
+                font-family: 'Cambay', sans-serif;
                 box-shadow: 5px 5px 5px #222222;
             }
 
