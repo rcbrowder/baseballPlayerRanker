@@ -8,6 +8,63 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
+* {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+#statspage {
+    background-image: url(https://images.unsplash.com/photo-1496283391099-4bda095db381?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8794ebd95c8b75f60953619f92e71ba2&auto=format&fit=crop&w=829&q=80);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#auth {
+    position: absolute;
+    background-color: transparent;
+    z-index: 3;
+}
+
+#navbarNavAltMarkup {
+    height: 95%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+#display {
+    background-color: white;
+    margin: 50px 20px 20px 20px;
+}
+
+/* #categorySelector {
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    margin-right: 8%;
+    margin-left: 8%;
+    margin-top: 60px;
+    height: 35%;
+    width: 84%;
+}
+
+#display {
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-top: 375px;
+    height: 45%;
+    width: 92%;
+} */
+
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
