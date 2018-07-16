@@ -15,7 +15,7 @@ See [InitialWireframe]('docs/InitialWireframe.png').
 
 ## Minimum Viable Product
 
-##### Home page
+### Home page
 
 1. Title
 2. Description
@@ -24,7 +24,7 @@ See [InitialWireframe]('docs/InitialWireframe.png').
     * Other directs you to page with pitcher stats
 4. Login/Register buttons
 
-##### Stats page
+### Stats page
 
 1. Button to switch you from batter stats page to pitcher stats page and vice versa
 2. Category selector field
@@ -38,7 +38,7 @@ See [InitialWireframe]('docs/InitialWireframe.png').
         * Overall z-score
 4. Login/Register buttons
 
-##### Backend
+### Backend
 
 1. Username and password for each user
 2. Saved state of selected categories for batters and pitchers
