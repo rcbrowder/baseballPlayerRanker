@@ -9,6 +9,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 
+
 * {
     padding: 0;
     margin: 0;
@@ -32,37 +33,33 @@ html, body {
 }
 
 #navbarNavAltMarkup {
-    height: 95%;
+    height: 90%;
+    width: 8%;
     margin-top: 50px;
     margin-bottom: 20px;
 }
 
-#display {
-    background-color: white;
-    margin: 50px 20px 20px 20px;
-}
-
-/* #categorySelector {
-    position: absolute;
-    z-index: 3;
-    background-color: white;
-    margin-right: 8%;
-    margin-left: 8%;
-    margin-top: 60px;
-    height: 35%;
-    width: 84%;
-}
+// #categorySelector {
+//     position: absolute;
+//     z-index: 3;
+//     background-color: white;
+//     margin-right: 8%;
+//     margin-left: 8%;
+//     margin-top: 60px;
+//     height: 35%;
+//     width: 84%;
+// }
 
 #display {
     position: absolute;
     z-index: 3;
-    background-color: white;
+    background-color: grey;
     margin-right: 4%;
-    margin-left: 4%;
-    margin-top: 375px;
-    height: 45%;
-    width: 92%;
-} */
+    margin-left: 15%;
+    margin-top: 50px;
+    height: 90%;
+    width: 80%;
+}
 
 
 .navbar-laravel {

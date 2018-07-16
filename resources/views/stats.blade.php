@@ -18,7 +18,7 @@
                         <li class="nav-item nav-link" href="#">Home</li>
                         <li class="nav-item nav-link" href="#">Features</li>
                         <li class="nav-item nav-link" href="#">Pricing</li>
-                        <li class="nav-item nav-link" href="#">Disableddddddddddddd</li>
+                        <li class="nav-item nav-link" href="#">Disabled</li>
                     </ul>
                 </div>
             </div>
