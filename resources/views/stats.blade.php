@@ -11,14 +11,26 @@
             <div class="collapse navbar-collapse bg-dark" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <ul>
-                        <li class="nav-item nav-link" href="#">Home</li>
-                        <li class="nav-item nav-link" href="#">Features</li>
-                        <li class="nav-item nav-link" href="#">Pricing</li>
-                        <li class="nav-item nav-link" href="#">Disabled</li>
-                        <li class="nav-item nav-link" href="#">Home</li>
-                        <li class="nav-item nav-link" href="#">Features</li>
-                        <li class="nav-item nav-link" href="#">Pricing</li>
-                        <li class="nav-item nav-link" href="#">Disabled</li>
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="checkbox" checked autocomplete="off">At bats
+                        </div>
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="checkbox" checked autocomplete="off">Walks
+                        </div>
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="checkbox" checked autocomplete="off">Hits
+                        </div>
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="checkbox" checked autocomplete="off">Runs
+                        </div>
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary active">
+                                <input type="checkbox" checked autocomplete="off">Homeruns
+                        </div>
                     </ul>
                 </div>
             </div>
