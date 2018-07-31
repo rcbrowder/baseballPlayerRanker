@@ -47311,12 +47311,8 @@ module.exports = function normalizeComponent (
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
+var _this = this;
+
 //
 //
 //
@@ -47329,6 +47325,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+
+    data: function data() {
+        return {
+            categoriesObject: {
+                '1B': 'Singles',
+                '2B': 'Doubles',
+                '3B': 'Triples',
+                'HR': 'Home Runs',
+                'BA': 'Batting Average',
+                'BB': 'Walks',
+                'XBH': 'Extra Base Hits',
+                'H': 'Extra Base Hits',
+                'HBP': 'Hit By Pitchs',
+                'K': 'Strikeouts',
+                'OBP': 'On-Base Percentage',
+                'OPS': 'On-Base Plus Slugging',
+                'R': 'Runs',
+                'RBI': 'Runs Batted In',
+                'SLG': 'Slugging Percentage',
+                'SB': 'Stolen Bases',
+                'TB': 'Total Bases',
+                'ISO': 'Isolated Power',
+                'WAR': 'Wins Above Replacement',
+                'G': 'Games Played'
+            },
+
+            categories: Object.keys(_this.categoriesObject),
+
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        };
+    },
+
     mounted: function mounted() {
         console.log('Component mounted.');
     }
@@ -47338,38 +47366,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card card-default" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
+module.exports={render:function(){},staticRenderFns:[]}
 if (false) {
   module.hot.accept()
   if (module.hot.data) {

@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse bg-dark" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <ul>
-                        
+                        <ExampleComponent></ExampleComponent>
                     </ul>
                 </div>
             </div>
