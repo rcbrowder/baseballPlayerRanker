@@ -1,7 +1,6 @@
 <template>
 
     <div>
-
         <div v-for="category in categories">
             <div class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary">
@@ -9,7 +8,6 @@
                 </label>
             </div>
         </div>
-
     </div>
 
 </template>
@@ -49,3 +47,6 @@
         }
     }
 </script>
+
+<style>
+</style>
