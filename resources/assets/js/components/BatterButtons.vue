@@ -5,7 +5,7 @@
         <div v-for="category in categories">
             <div class="btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary">
-                    <input type="checkbox" autocomplete="off">
+                    <input type="checkbox" autocomplete="off"> {{ category }}
                 </label>
             </div>
         </div>
@@ -19,7 +19,7 @@
 
         data() {
             return {
-                categoriesObject: {
+                categories: {
                     '1B': 'Singles',
                     '2B': 'Doubles',
                     '3B': 'Triples',
@@ -41,12 +41,6 @@
                     'WAR': 'Wins Above Replacement',
                     'G': 'Games Played'
                 },
-
-                categories: Object.keys(this.categoriesObject),
-
-                category: 'sun',
-
-                // csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             };
         },
 

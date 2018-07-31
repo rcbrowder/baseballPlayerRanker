@@ -47331,7 +47331,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            categoriesObject: {
+            categories: {
                 '1B': 'Singles',
                 '2B': 'Doubles',
                 '3B': 'Triples',
@@ -47352,13 +47352,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 'ISO': 'Isolated Power',
                 'WAR': 'Wins Above Replacement',
                 'G': 'Games Played'
-            },
-
-            categories: Object.keys(this.categoriesObject),
-
-            category: 'sun'
-
-            // csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            }
         };
     },
     mounted: function mounted() {
@@ -47377,26 +47371,25 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.categories, function(category) {
-      return _c("div", [_vm._m(0, true)])
+      return _c("div", [
+        _c(
+          "div",
+          {
+            staticClass: "btn-group-toggle",
+            attrs: { "data-toggle": "buttons" }
+          },
+          [
+            _c("label", { staticClass: "btn btn-secondary" }, [
+              _c("input", { attrs: { type: "checkbox", autocomplete: "off" } }),
+              _vm._v(" " + _vm._s(category) + "\n            ")
+            ])
+          ]
+        )
+      ])
     })
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "btn-group-toggle", attrs: { "data-toggle": "buttons" } },
-      [
-        _c("label", { staticClass: "btn btn-secondary" }, [
-          _c("input", { attrs: { type: "checkbox", autocomplete: "off" } })
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
