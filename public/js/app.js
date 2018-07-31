@@ -13891,7 +13891,7 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(39));
+Vue.component('batter-buttons', __webpack_require__(39));
 
 var app = new Vue({
   el: '#app'
@@ -47175,7 +47175,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
+Component.options.__file = "resources/assets/js/components/BatterButtons.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47184,9 +47184,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
+    hotAPI.createRecord("data-v-b41a8a64", Component.options)
   } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
+    hotAPI.reload("data-v-b41a8a64", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47311,8 +47311,12 @@ module.exports = function normalizeComponent (
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-var _this = this;
-
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -47325,7 +47329,6 @@ var _this = this;
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-
     data: function data() {
         return {
             categoriesObject: {
@@ -47351,12 +47354,13 @@ var _this = this;
                 'G': 'Games Played'
             },
 
-            categories: Object.keys(_this.categoriesObject),
+            categories: Object.keys(this.categoriesObject),
 
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            category: 'sun'
+
+            // csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         };
     },
-
     mounted: function mounted() {
         console.log('Component mounted.');
     }
@@ -47366,11 +47370,39 @@ var _this = this;
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.categories, function(category) {
+      return _c("div", [_vm._m(0, true)])
+    })
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "btn-group-toggle", attrs: { "data-toggle": "buttons" } },
+      [
+        _c("label", { staticClass: "btn btn-secondary" }, [
+          _c("input", { attrs: { type: "checkbox", autocomplete: "off" } })
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-b41a8a64", module.exports)
   }
 }
 
