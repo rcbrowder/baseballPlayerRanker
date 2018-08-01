@@ -16,9 +16,12 @@
         - ID
         - Name
         - Position
+<!--
     - Stats
         - Category
+-->
     - Z-score table
         - Player_ID  -- Composite index?
-        - Stats_ID
+        - Stats_ID -- Make this cat title instead of ID?
+        - Value
         - Z-score
