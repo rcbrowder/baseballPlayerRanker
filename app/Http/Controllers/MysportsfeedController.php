@@ -10,15 +10,6 @@ class MysportsfeedController extends Controller
 {
     public function test() {
 
-        // $msf = new MySportsFeeds("1.1");
-        //
-        // $msf->authenticate("9e2f8820-0074-41fb-b46d-f5de62", "kentucky11");
-        //
-        // $data = $msf->getData('mlb', '2018-regular', 'cumulative_player_stats', 'json');
-
-
-
-
         // Get cURL resource
         $ch = curl_init();
 
@@ -41,6 +32,7 @@ class MysportsfeedController extends Controller
 
         // Send the request & save response to $resp
         $resp = curl_exec($ch);
+        \Storage::disk('local')->put('stats.json', $resp);
 
         if (!$resp) {
         	die('Error: "' . curl_error($ch) . '" - Code: ' . curl_errno($ch));
@@ -51,6 +43,15 @@ class MysportsfeedController extends Controller
 
         // Close request to clear up some resources
         curl_close($ch);
+
+    }
+
+    public function parseStats() {
+        $string = \Storage::disk('local')->get('stats.json');
+
+        $stats = json_decode($string, true);
+
+        
 
     }
 
