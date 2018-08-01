@@ -13,5 +13,5 @@
         <a href="{{ url('/pitchers') }}"><button type="button" class="btn btn-secondary btn-lg rounded-0 boarder boarder-dark myButtons" href="/pitchers"><strong>Pitchers</strong></button></a>
         <div id="pitcherBG" class="grow"></div>
     </div>
-</div>
+</div> 
 @endsection

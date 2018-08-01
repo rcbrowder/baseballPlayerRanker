@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/batters', function () {
-    return view('batters');
+    return view('stats');
 });
 
 Route::get('/pitchers', function () {
-    return view('pitchers');
+    return view('stats');
 });
 
 Auth::routes();
