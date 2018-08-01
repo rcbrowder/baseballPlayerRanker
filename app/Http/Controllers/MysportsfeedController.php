@@ -48,6 +48,8 @@ class MysportsfeedController extends Controller
 
     }
 
+
+
     public function parseStats() {
         $string = \Storage::disk('local')->get('stats.json');
 
@@ -59,13 +61,24 @@ class MysportsfeedController extends Controller
         //
         // }
 
-        // dd($stats['cumulativeplayerstats']['playerstatsentry'][0]['player']);
+        dd($stats['cumulativeplayerstats']['playerstatsentry'][69]);
 
         foreach ($stats['cumulativeplayerstats']['playerstatsentry'] as $stat) {
+
             \DB::table('players')->insert([
-                 'name' => ($stat['player']['LastName'].", ".$stat['player']['FirstName']),
-                 'position' => ($stat['player']['Position']),
+                'id' => ($stat['player']['ID']),
+                'name' => ($stat['player']['LastName'].", ".$stat['player']['FirstName']),
+                'position' => ($stat['player']['Position']),
             ]);
+
+            // foreach ($stat[] as $st) {
+            //     $player =
+            //     \DB::table('stats')->insert([
+            //         'player_id' =>
+            //     ]);
+            //
+            // }
+
         }
 
     }

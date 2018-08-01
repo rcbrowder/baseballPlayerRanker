@@ -14,7 +14,7 @@ class CreateStatsTable extends Migration
     public function up()
     {
         Schema::create('stats', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id');
             $table->unsignedInteger('player_id');
             $table->unsignedInteger('category_id');
             $table->foreign('player_id')->references('id')->on('players');
