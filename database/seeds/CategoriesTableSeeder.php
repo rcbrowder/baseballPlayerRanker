@@ -14,6 +14,7 @@ class CategoriesTableSeeder extends Seeder
     public function run() {
 
         $categories = [
+            // Batting stats
             '1B' => 'Singles',
             '2B' => 'Doubles',
             '3B' => 'Triples',
@@ -33,7 +34,27 @@ class CategoriesTableSeeder extends Seeder
             'TB' => 'Total Bases',
             'ISO' => 'Isolated Power',
             'WAR' => 'Wins Above Replacement',
-            'G' => 'Games Played'
+            'G' => 'Games Played',
+
+            //Pitching stats
+            'W' => 'Win',
+            'L' => 'Loss',
+            'QS' => 'Quality Starts',
+            'G' => 'Games Played',
+            'CG' => 'Complete Games',
+            'SHO' => 'Shutouts',
+            'SV' => 'Saves',
+            'BS' => 'Blown Save',
+            'OBA' => 'Opponents Batting Average',
+            'H' => 'Hits Allowed',
+            'R' => 'Runs Allowed',
+            'HR' => 'Home Runs Allowed',
+            'BB' => 'Walks',
+            'K' => 'Strikeouts',
+            'ER' => 'Earned Runs',
+            'ERA' => 'Earned Run Average',
+            'FIP' => 'Fielding Independent Pitching',
+            'WHIP' => 'Walks and Hits per Inning Pitched'
         ];
 
         foreach ($categories as $abv => $name) {
