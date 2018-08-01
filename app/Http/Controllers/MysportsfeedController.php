@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 use MySportsFeeds\MySportsFeeds;
 
 class MysportsfeedController extends Controller
@@ -51,7 +53,20 @@ class MysportsfeedController extends Controller
 
         $stats = json_decode($string, true);
 
-        
+        // foreach ($stats['cumulativeplayerstats']['playerstatsentry'] as $stat) {
+        //
+        //          echo ($stat['player']['LastName'].", ".$stat['player']['FirstName']);
+        //
+        // }
+
+        // dd($stats['cumulativeplayerstats']['playerstatsentry'][0]['player']);
+
+        foreach ($stats['cumulativeplayerstats']['playerstatsentry'] as $stat) {
+            \DB::table('players')->insert([
+                 'name' => ($stat['player']['LastName'].", ".$stat['player']['FirstName']),
+                 'position' => ($stat['player']['Position']),
+            ]);
+        }
 
     }
 
