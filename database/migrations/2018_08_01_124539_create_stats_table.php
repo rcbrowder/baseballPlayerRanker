@@ -20,8 +20,8 @@ class CreateStatsTable extends Migration
             $table->foreign('player_id')->references('id')->on('players');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->unique(['player_id', 'category_id']);
-            $table->decimal('value', 6, 3);
-            $table->decimal('zscore', 4, 2);
+            $table->decimal('value', 6, 3)->nullable();
+            $table->decimal('zscore', 4, 2)->nullable();
             $table->timestamps();
         });
     }
