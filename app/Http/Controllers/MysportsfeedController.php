@@ -55,19 +55,7 @@ class MysportsfeedController extends Controller
 
         $stats = json_decode($string, true);
 
-        // foreach ($stats['cumulativeplayerstats']['playerstatsentry'] as $stat) {
-        //
-        //          echo ($stat['player']['LastName'].", ".$stat['player']['FirstName']);
-        //
-        // }
-
         // dd($stats['cumulativeplayerstats']['playerstatsentry'][1]['stats']);
-
-        // $cats = [
-        //     'GamesPlayed' => 20,
-        //     'Runs' => 13,
-        //     'Hits' =>
-        // ];
 
         foreach ($stats['cumulativeplayerstats']['playerstatsentry'] as $stat) {
 
@@ -84,7 +72,7 @@ class MysportsfeedController extends Controller
             }
         }
     }
-    
+
 
 
     public function populateStats() {
@@ -131,5 +119,46 @@ class MysportsfeedController extends Controller
                 }
             }
         }
+    }
+
+
+    public function zVars($cat) {
+
+        // Given a category, return a collection of values for that category
+        $values = \DB::table('stats')->where('category_id', $cat)->get();
+
+        // Calculate the Average
+        $avg = $values->avg();
+
+        // Calculate standard deviation
+        $sd = stats_standard_deviation($values);
+
+        // For each player+category index, insert calculated zscore
+        foreach ($players as $player) {
+
+            // Insert into DB
+            ($player, $cat)->zscore = zscore();
+        }
+
+    }
+
+
+    public function zscore($value, $avg, $sd) {
+
+        // Return zscore value
+        return ($value - $avg) / $sd;
+    }
+
+
+
+    // Function to calculate square of value - mean
+    public function sd_square($x, $mean) {
+        return pow($x - $mean,2);
+    }
+
+    // Function to calculate standard deviation (uses sd_square)
+    public function sd($array) {
+        // square root of sum of squares devided by N-1
+        return sqrt(array_sum(array_map("sd_square", $array, array_fill(0,count($array), (array_sum($array) / count($array)) ) ) ) / (count($array)-1) );
     }
 }
