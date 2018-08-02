@@ -84,6 +84,7 @@ class MysportsfeedController extends Controller
             }
         }
     }
+    
 
 
     public function populateStats() {
