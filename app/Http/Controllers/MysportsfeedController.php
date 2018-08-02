@@ -178,7 +178,25 @@ class MysportsfeedController extends Controller
 
         }
 
-        dd($catAvgArray);
+        return [$catAvgArray, $catSdArray];
+
+    }
+
+
+    public function insertZscores() {
+
+        $statrows = \DB::table('stats')->get();
+        $calcArrays = Self::avgJob();
+
+        foreach ($statrows as $row) {
+
+            $z = Self::zscore($row->value, $calcArrays[0][$row->category_id], $calcArrays[1][$row->category_id]);
+
+            \DB::table('stats')->where([
+                ['player_id', $row->player_id],
+                ['category_id', $row->category_id]
+                ])->update(['zscore' => $z]);
+        }
 
     }
 
@@ -187,20 +205,11 @@ class MysportsfeedController extends Controller
 
     public function zscore($value, $avg, $sd) {
 
-        // Calculate the Average
-        $avg = $values->avg();
-
-        // Calculate standard deviation
-        $sd = stats_standard_deviation($values);
-
-        // For each player+category index, insert calculated zscore
-        foreach ($players as $player) {
-
-            // Insert into DB
-
-            // Return zscore value
-            return ($value - $avg) / $sd;
+        if ($sd == 0) {
+            return 0;
         }
+        return ($value - $avg) / $sd;
+
     }
 
 }
