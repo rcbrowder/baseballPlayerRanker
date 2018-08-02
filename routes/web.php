@@ -27,4 +27,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', 'MysportsfeedController@test');
+// Route::get('/test', 'MysportsfeedController@insertZscores');
+Route::get('/pop', 'MysportsfeedController@populateStats');
