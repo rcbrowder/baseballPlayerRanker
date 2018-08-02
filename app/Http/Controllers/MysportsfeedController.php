@@ -122,10 +122,70 @@ class MysportsfeedController extends Controller
     }
 
 
-    public function zVars($cat) {
+    public function standard_deviation_population($a) {
 
-        // Given a category, return a collection of values for that category
-        $values = \DB::table('stats')->where('category_id', $cat)->get();
+        $a = $a->toArray();
+          //variable and initializations
+          $the_standard_deviation = 0.0;
+          $the_variance = 0.0;
+          $the_mean = 0.0;
+          $the_array_sum = array_sum($a); //sum the elements
+          $number_elements = count($a); //count the number of elements
+
+          //calculate the mean
+          $the_mean = $the_array_sum / $number_elements;
+
+          //calculate the variance
+          for ($i = 0; $i < $number_elements; $i++)
+          {
+            //sum the array
+            $the_variance = $the_variance + ($a[$i]->value - $the_mean) * ($a[$i]->value - $the_mean);
+          }
+
+          $the_variance = $the_variance / $number_elements;
+
+          //calculate the standard deviation
+          $the_standard_deviation = pow( $the_variance, 0.5);
+
+          //return the variance
+          return $the_standard_deviation;
+    }
+
+
+    public function avgJob() {
+
+        $catAvgArray = [];
+        $catSdArray = [];
+
+        $cats = \DB::table('stats')->select('category_id')->get();
+        $cats = $cats->unique();
+
+        foreach($cats as $cat) {
+
+            // Given a category, return a collection of values for that category
+            $values = \DB::table('stats')->select('value')->where('category_id', $cat->category_id)->get();
+
+            // Calculate the Average
+            $avg = $values->avg('value');
+
+            // Calculate standard deviation
+            $sd = Self::standard_deviation_population($values);
+
+            // Insert into arrays
+            $catAvgArray[$cat->category_id] = $avg;
+            $catSdArray[$cat->category_id] = $sd;
+
+
+        }
+
+        dd($catAvgArray);
+
+    }
+
+
+
+
+    public function zscore($value, $avg, $sd) {
 
         // Calculate the Average
         $avg = $values->avg();
@@ -137,28 +197,10 @@ class MysportsfeedController extends Controller
         foreach ($players as $player) {
 
             // Insert into DB
-            ($player, $cat)->zscore = zscore();
+
+            // Return zscore value
+            return ($value - $avg) / $sd;
         }
-
     }
 
-
-    public function zscore($value, $avg, $sd) {
-
-        // Return zscore value
-        return ($value - $avg) / $sd;
-    }
-
-
-
-    // Function to calculate square of value - mean
-    public function sd_square($x, $mean) {
-        return pow($x - $mean,2);
-    }
-
-    // Function to calculate standard deviation (uses sd_square)
-    public function sd($array) {
-        // square root of sum of squares devided by N-1
-        return sqrt(array_sum(array_map("sd_square", $array, array_fill(0,count($array), (array_sum($array) / count($array)) ) ) ) / (count($array)-1) );
-    }
 }
