@@ -61,7 +61,7 @@ class MysportsfeedController extends Controller
         //
         // }
 
-        dd($stats['cumulativeplayerstats']['playerstatsentry'][0]);
+        dd($stats['cumulativeplayerstats']['playerstatsentry'][1]);
 
         // $cats = [
         //     'GamesPlayed' => 20,
@@ -80,13 +80,13 @@ class MysportsfeedController extends Controller
                 'position' => ($stat['player']['Position']),
             ]);
 
-            for ($i = 0; $i < 38; $i++) {
-
-                \DB::table('stats')->insert([
-                    'player_id' => $player,
-                    'category_id' => $stat['stats'][$cats[$i]],
-                ]);
-            }
+            // for ($i = 0; $i < 38; $i++) {
+            //
+            //     \DB::table('stats')->insert([
+            //         'player_id' => $player,
+            //         'category_id' => $stat['stats'][$cats[$i]],
+            //     ]);
+            // }
 
         }
 

@@ -16,8 +16,8 @@ class CreateStatsTable extends Migration
         Schema::create('stats', function (Blueprint $table) {
             $table->integer('id');
             $table->unsignedInteger('player_id');
-            $table->unsignedInteger('category_id');
-            $table->foreign('player_id')->references('id')->on('players');
+            $table->string('category_id');
+            // $table->foreign('player_id')->references('id')->on('players');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->unique(['player_id', 'category_id']);
             $table->decimal('value', 6, 3)->nullable();
