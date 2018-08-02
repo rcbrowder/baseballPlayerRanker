@@ -61,7 +61,7 @@ class MysportsfeedController extends Controller
         //
         // }
 
-        dd($stats['cumulativeplayerstats']['playerstatsentry'][1]);
+        // dd($stats['cumulativeplayerstats']['playerstatsentry'][1]['stats']);
 
         // $cats = [
         //     'GamesPlayed' => 20,
@@ -71,25 +71,64 @@ class MysportsfeedController extends Controller
 
         foreach ($stats['cumulativeplayerstats']['playerstatsentry'] as $stat) {
 
-            $player = $stat['player']['ID'];
-            $category = $stat['stats']['GamesPlayed'];
+            $player = $stat['player'];
+            $cats = $stat['stats'];
 
-            \DB::table('players')->insert([
-                'id' => ($stat['player']['ID']),
-                'name' => ($stat['player']['LastName'].", ".$stat['player']['FirstName']),
-                'position' => ($stat['player']['Position']),
-            ]);
+            if ($cats['GamesPlayed']['#text'] > 10) {
 
-            // for ($i = 0; $i < 38; $i++) {
-            //
-            //     \DB::table('stats')->insert([
-            //         'player_id' => $player,
-            //         'category_id' => $stat['stats'][$cats[$i]],
-            //     ]);
-            // }
-
+                \DB::table('players')->insert([
+                    'id' => ($player['ID']),
+                    'name' => ($player['LastName'].", ".$stat['player']['FirstName']),
+                    'position' => ($player['Position']),
+                ]);
+            }
         }
-
     }
 
+
+    public function populateStats() {
+
+        $string = \Storage::disk('local')->get('stats.json');
+
+        $stats = json_decode($string, true);
+
+        foreach ($stats['cumulativeplayerstats']['playerstatsentry'] as $stat) {
+
+            $player = $stat['player'];
+            $cats = $stat['stats'];
+
+            if ($cats['GamesPlayed']['#text'] > 10) {
+
+                foreach ($cats as $cat) {
+
+                    if (array_key_exists('@category', $cat)) {
+
+                        if ($player['Position'] == 'P' && $cat['@category'] == 'Pitching') {
+
+                            \DB::table('stats')->insert([
+                                'player_id' => $player['ID'],
+                                'category_id' => $cat['@abbreviation'],
+                                'value' => $cat['#text'],
+
+                                // TODO: zscore function
+                                'zscore' => null,
+                            ]);
+                        }
+
+                        elseif ($player['Position'] != 'P' && $cat['@category'] == 'Batting') {
+
+                            \DB::table('stats')->insert([
+                                'player_id' => $player['ID'],
+                                'category_id' => $cat['@abbreviation'],
+                                'value' => $cat['#text'],
+
+                                // TODO: zscore function
+                                'zscore' => null,
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
