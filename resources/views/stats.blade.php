@@ -11,13 +11,13 @@
             <div class="collapse navbar-collapse bg-dark" id="catNav">
                 <div class="navbar-nav">
                     <ul>
-                        <batter-buttons></batter-buttons>
+                        <batter-buttons :categories="{{ $categories->toJson() }}"></batter-buttons>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <stats-table :stats="{{ $stats->toJson() }}"></stats-table>
+        <stats-table :stats="{{ $stats->toJson() }}" :players="{{ $players->toJson() }}" :categories="{{ $categories->toJson() }}"></stats-table>
 
         <div id="display" class="col col-sm-9">
         </div>

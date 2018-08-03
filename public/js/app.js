@@ -47716,30 +47716,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+
+    props: ['categories'],
+
     data: function data() {
         return {
-            categories: {
-                '1B': 'Singles',
-                '2B': 'Doubles',
-                '3B': 'Triples',
-                'HR': 'Home Runs',
-                'BA': 'Batting Average',
-                'BB': 'Walks',
-                'XBH': 'Extra Base Hits',
-                'H': 'Extra Base Hits',
-                'HBP': 'Hit By Pitchs',
-                'K': 'Strikeouts',
-                'OBP': 'On-Base Percentage',
-                'OPS': 'On-Base Plus Slugging',
-                'R': 'Runs',
-                'RBI': 'Runs Batted In',
-                'SLG': 'Slugging Percentage',
-                'SB': 'Stolen Bases',
-                'TB': 'Total Bases',
-                'ISO': 'Isolated Power',
-                'WAR': 'Wins Above Replacement',
-                'G': 'Games Played'
-            }
+            // categories: {
+            //     '1B': 'Singles',
+            //     '2B': 'Doubles',
+            //     '3B': 'Triples',
+            //     'HR': 'Home Runs',
+            //     'BA': 'Batting Average',
+            //     'BB': 'Walks',
+            //     'XBH': 'Extra Base Hits',
+            //     'H': 'Extra Base Hits',
+            //     'HBP': 'Hit By Pitchs',
+            //     'K': 'Strikeouts',
+            //     'OBP': 'On-Base Percentage',
+            //     'OPS': 'On-Base Plus Slugging',
+            //     'R': 'Runs',
+            //     'RBI': 'Runs Batted In',
+            //     'SLG': 'Slugging Percentage',
+            //     'SB': 'Stolen Bases',
+            //     'TB': 'Total Bases',
+            //     'ISO': 'Isolated Power',
+            //     'WAR': 'Wins Above Replacement',
+            //     'G': 'Games Played'
+            // },
         };
     },
     mounted: function mounted() {}
@@ -47812,6 +47815,10 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(55)
+}
 var normalizeComponent = __webpack_require__(45)
 /* script */
 var __vue_script__ = __webpack_require__(53)
@@ -47820,7 +47827,7 @@ var __vue_template__ = __webpack_require__(54)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
 var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
@@ -47880,9 +47887,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['stats'],
+    props: ['stats', 'players', 'categories'],
 
     data: function data() {
         return {};
@@ -47897,35 +47906,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.stats, function(stat) {
-        return _c("tr", [
-          _c("td", [_vm._v(_vm._s(stat.name))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(stat.position))])
-        ])
-      })
-    )
+  return _c("div", { attrs: { id: "displayDiv" } }, [
+    _c("table", { staticClass: "table" }, [
+      _c("thead", [
+        _c(
+          "tr",
+          [
+            _vm._l(_vm.categories, function(category) {
+              return _c("td", [_vm._v(_vm._s(category))])
+            }),
+            _vm._v(" "),
+            _c("td", [_vm._v("Total")])
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.players, function(player) {
+          return _c(
+            "tr",
+            _vm._l(_vm.stats, function(stat) {
+              return _c("td", [_vm._v(_vm._s(stat.zscore))])
+            })
+          )
+        })
+      )
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", { staticClass: "font-weight-bold" }, [
-        _c("td", [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("td", [_vm._v("Position")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -47934,6 +47945,46 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-f5efdf34", module.exports)
   }
 }
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(56);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(43)("369bcb7e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f5efdf34\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StatsTable.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-f5efdf34\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./StatsTable.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(42)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.table {\n    background-color: grey;\n    margin-top: 50px;\n    width: 50%;\n    height: 60%;\n    overflow-y: scroll;\n}\n#displayDiv {\n    overflow-y: scroll;\n    display: block;\n    height: 50%;\n    width: 60%;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
