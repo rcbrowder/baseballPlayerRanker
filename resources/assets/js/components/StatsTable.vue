@@ -1,16 +1,23 @@
 <template>
     <div id="displayDiv">
 
-        <table class="table">
+        <table class="table-dark">
             <thead>
                 <tr>
-                    <td v-for="category in categories">{{ category }}</td>
-                    <td>Total</td>
+                    <th>Player</th>
+                    <th>Position</th>
+                    <th v-for="category in categories">{{ category }}</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="player in players">
-                    <td v-for="stat in stats">{{ stat.zscore }}</td>
+                <tr v-for="(player,index) in players">
+                    <td>{{player.name}}</td>
+                    <td>{{player.position}}</td>
+                    <td v-for="(zscores, indexx) in zscorearray">
+                        {{ zscores[index] }}
+                    </td>
+                    <td>{{ totalarray[index] }}</td>
                 </tr>
             </tbody>
         </table>
@@ -22,7 +29,7 @@
 
 <script>
     export default {
-        props: ['stats', 'players', 'categories'],
+        props: ['zscorearray', 'players', 'categories', 'totalarray'],
 
         data: () => ({
 
@@ -33,16 +40,12 @@
 <style>
     .table {
         background-color: grey;
-        margin-top: 50px;
-        width: 50%;
-        height: 60%;
-        overflow-y: scroll;
     }
 
     #displayDiv {
         overflow-y: scroll;
         display: block;
         height: 50%;
-        width: 60%;
+        width: 80%;
     }
 </style>

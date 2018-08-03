@@ -14,8 +14,7 @@ class StatsController extends Controller
     public function index() {
         // Collection of first 20 players
         $players = \DB::table('players')->get();
-        $players = $players->slice(0,20);
-        $playersSort = $players->pluck('id');
+        $players = $players->slice(0,10);
 
 
         // Collection of first 2000 stats
@@ -28,35 +27,54 @@ class StatsController extends Controller
 
         // Initialize empty arrays
         $totalArray = [];
-
+        $zscoreArray = [];
+        $a = [];
 
         // Calculate z-score total for selected categories
         foreach ($players as $player) {
             foreach ($categories as $cat) {
+
                 $total = $stats->where('player_id', $player->id)->pluck('zscore')->sum();
+
+                $z = \DB::table('stats')->select('zscore')->where('category_id', $cat)->where('player_id', $player->id)->get()->first();
+
+                if ($z == null) {
+                    array_push($a, "0.00");
+                }
+                else{
+                    array_push($a, $z->zscore);
+                }
 
                 // Insert z-score total into an array with player_id as key
                 $totalArray[$player->id] = $total;
             }
+            array_push($zscoreArray, $a);
+            $a = [];
         }
+
+
 
     // Order players by total z-score
         arsort($totalArray);
         $order = array_keys($totalArray);
-        // $ordered_array = array_merge(array_flip($order), $players);
-        
 
-
-
-
-        foreach ($categories as $cat) {
-
-            $z = \DB::table('stats')->select('player_id', 'zscore')->where('category_id', $cat)->get();
-            $z = $z->sortByDesc('zscore');
-
+        $playersArray = [];
+        foreach ($order as $p) {
+            $playersArray[] = $players->where('id', $p)->first();
         }
 
-        return view('stats', compact('stats', 'players', 'categories'));
+        foreach($totalArray as $total) {
+            $total = round($total, 2);
+            array_push($totalArray, $total);
+            array_shift($totalArray);
+        }
+
+        $players = collect($playersArray)->values();
+        $totalArray = collect($totalArray);
+        $zscoreArray = collect($zscoreArray)->values();
+
+
+        return view('stats', compact('totalArray', 'zscoreArray', 'players', 'categories'));
     }
 
     public function cumulativeZscore() {
