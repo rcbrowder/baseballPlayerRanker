@@ -47887,7 +47887,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.table {\n    background-color: grey;\n}\n#displayDiv {\n    overflow-y: scroll;\n    display: block;\n    height: 50%;\n    width: 80%;\n}\n", ""]);
+exports.push([module.i, "\n#displayDiv {\n    overflow-y: scroll;\n    display: block;\n    height: 70%;\n    width: 80%;\n    margin-top: 60px;\n}\n", ""]);
 
 // exports
 
@@ -47898,8 +47898,6 @@ exports.push([module.i, "\n.table {\n    background-color: grey;\n}\n#displayDiv
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
 //
 //
 //
@@ -47945,52 +47943,55 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "displayDiv" } }, [
-    _c("table", { staticClass: "table-dark" }, [
-      _c("thead", [
-        _c(
-          "tr",
-          [
-            _c("th", [_vm._v("Player")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Position")]),
-            _vm._v(" "),
-            _vm._l(_vm.categories, function(category) {
-              return _c("th", [_vm._v(_vm._s(category))])
-            }),
-            _vm._v(" "),
-            _c("th", [_vm._v("Total")])
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.players, function(player, index) {
-          return _c(
+    _c(
+      "table",
+      {
+        staticClass:
+          "table table-sm table-dark table-striped table-responsive-sm table-hover"
+      },
+      [
+        _c("thead", [
+          _c(
             "tr",
             [
-              _c("td", [_vm._v(_vm._s(player.name))]),
+              _c("th", [_vm._v("Player")]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(player.position))]),
+              _c("th", [_vm._v("Position")]),
               _vm._v(" "),
-              _vm._l(_vm.zscorearray, function(zscores, indexx) {
-                return _c("td", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(zscores[index]) +
-                      "\n                "
-                  )
-                ])
+              _vm._l(_vm.categories, function(category) {
+                return _c("th", [_vm._v(_vm._s(category))])
               }),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.totalarray[index]))])
+              _c("th", [_vm._v("Total")])
             ],
             2
           )
-        })
-      )
-    ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.players, function(player, index) {
+            return _c(
+              "tr",
+              [
+                _c("td", [_vm._v(_vm._s(player.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(player.position))]),
+                _vm._v(" "),
+                _vm._l(_vm.zscorearray, function(zscores, indexx) {
+                  return zscores[indexx]
+                    ? _c("td", [_vm._v(_vm._s(zscores[indexx]))])
+                    : _vm._e()
+                }),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.totalarray[index]))])
+              ],
+              2
+            )
+          })
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = []

@@ -1,7 +1,6 @@
 @extends ('layouts.app')
 
 @section('content')
-
 <div id="statspage" class="container-fluid">
     <div class="row">
         <nav id="sidebar" class="col col-sm-2 navbar navbar-expand-sm navbar-dark">
@@ -23,5 +22,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

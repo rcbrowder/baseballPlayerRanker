@@ -14,7 +14,7 @@ class StatsController extends Controller
     public function index() {
         // Collection of first 20 players
         $players = \DB::table('players')->get();
-        $players = $players->slice(0,10);
+        $players = $players->slice(0,20);
 
 
         // Collection of first 2000 stats
@@ -51,8 +51,6 @@ class StatsController extends Controller
             array_push($zscoreArray, $a);
             $a = [];
         }
-
-
 
     // Order players by total z-score
         arsort($totalArray);
