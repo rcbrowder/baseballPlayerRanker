@@ -17,6 +17,8 @@
             </div>
         </nav>
 
+        <stats-table :stats="{{ $stats->toJson() }}"></stats-table>
+
         <div id="display" class="col col-sm-9">
         </div>
     </div>

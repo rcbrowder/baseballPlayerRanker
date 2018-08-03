@@ -53,6 +53,7 @@
     .stats {
         width: 100%;
         border-radius: 0;
+        margin: auto;
     }
 
     #submitStats {
