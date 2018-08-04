@@ -14,7 +14,7 @@
                 <tr v-for="(player,index) in players">
                     <td>{{player.name}}</td>
                     <td>{{player.position}}</td>
-                    <td v-for="(zscores, indexx) in zscorearray" v-if="zscores[indexx]">{{ zscores[indexx] }}</td>
+                    <td v-for="(zscores, indexx) in zscorearray" v-if="zscores[indexx]">{{ zscores[index] }}</td>
                     <td>{{ totalarray[index] }}</td>
                 </tr>
             </tbody>

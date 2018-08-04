@@ -47980,7 +47980,7 @@ var render = function() {
                 _vm._v(" "),
                 _vm._l(_vm.zscorearray, function(zscores, indexx) {
                   return zscores[indexx]
-                    ? _c("td", [_vm._v(_vm._s(zscores[indexx]))])
+                    ? _c("td", [_vm._v(_vm._s(zscores[index]))])
                     : _vm._e()
                 }),
                 _vm._v(" "),

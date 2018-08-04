@@ -23,7 +23,7 @@ class StatsController extends Controller
 
         // Collection of first 10 unique categories
         $categories = $stats->unique('category_id')->pluck('category_id');
-        $categories = $categories->slice(0,10);
+        $categories = $categories->slice(0,20);
 
         // Initialize empty arrays
         $totalArray = [];
