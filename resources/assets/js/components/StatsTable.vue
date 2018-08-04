@@ -1,7 +1,7 @@
 <template>
-    <div id="displayDiv">
+    <!-- <div id="displayDiv"> -->
 
-        <table class="table table-sm table-dark table-striped table-responsive-sm table-hover">
+        <table class="table table-sm table-dark table-striped table-responsive table-hover header-fixed">
             <thead>
                 <tr>
                     <th>Player</th>
@@ -12,15 +12,15 @@
             </thead>
             <tbody>
                 <tr v-for="(player,index) in players">
-                    <td>{{player.name}}</td>
-                    <td>{{player.position}}</td>
+                    <td style="width:10%;">{{player.name}}</td>
+                    <td style="width:5%;">{{player.position}}</td>
                     <td v-for="(zscores, indexx) in zscorearray" v-if="zscores[indexx]">{{ zscores[index] }}</td>
                     <td>{{ totalarray[index] }}</td>
                 </tr>
             </tbody>
         </table>
 
-    </div>
+    <!-- </div> -->
 
 </template>
 
@@ -39,8 +39,18 @@
     #displayDiv {
         overflow-y: scroll;
         display: block;
-        height: 70%;
+        height: 50%;
         width: 80%;
         margin-top: 60px;
+        position: relative;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        width: 5%;
     }
 </style>

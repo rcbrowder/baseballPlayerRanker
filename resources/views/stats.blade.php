@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section('content')
-<div id="statspage" class="container-fluid">
+<div id="statspage" class="container-fluid content">
     <div class="row">
         <nav id="sidebar" class="col col-sm-2 navbar navbar-expand-sm navbar-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#catNav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,9 +16,10 @@
             </div>
         </nav>
 
-        <stats-table :totalArray="{{ $totalArray->toJson() }}" :players="{{ $players->toJson() }}" :categories="{{ $categories->toJson() }}" :zscoreArray="{{ $zscoreArray->toJson() }}"></stats-table>
+        <div id="display" class="col col-sm-10 text-center">
 
-        <div id="display" class="col col-sm-9">
+            <stats-table :totalArray="{{ $totalArray->toJson() }}" :players="{{ $players->toJson() }}" :categories="{{ $categories->toJson() }}" :zscoreArray="{{ $zscoreArray->toJson() }}"></stats-table>
+
         </div>
     </div>
 </div>

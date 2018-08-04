@@ -14,7 +14,7 @@ class StatsController extends Controller
     public function index() {
         // Collection of first 20 players
         $players = \DB::table('players')->get();
-        $players = $players->slice(0,20);
+        $players = $players->slice(0,15);
 
 
         // Collection of first 2000 stats
@@ -23,7 +23,7 @@ class StatsController extends Controller
 
         // Collection of first 10 unique categories
         $categories = $stats->unique('category_id')->pluck('category_id');
-        $categories = $categories->slice(0,20);
+        $categories = $categories->slice(0,15);
 
         // Initialize empty arrays
         $totalArray = [];
@@ -75,7 +75,7 @@ class StatsController extends Controller
         return view('stats', compact('totalArray', 'zscoreArray', 'players', 'categories'));
     }
 
-    public function cumulativeZscore() {
-
+    public function buttons() {
+        
     }
 }

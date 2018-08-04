@@ -47655,7 +47655,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.stats {\n    width: 100%;\n    border-radius: 0;\n    margin: auto;\n}\n#submitStats {\n    width: 100%;\n    border-radius: 0;\n}\n", ""]);
+exports.push([module.i, "\n.stats {\n    width: 100%;\n    border-radius: 0;\n    padding: 5%;\n    /* margin-left: 50%; */\n}\n#submitStats {\n    width: 100%;\n    border-radius: 0;\n    /* margin-left: 50%; */\n}\n.btn-group-toggle {\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -47721,6 +47721,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
+
+            catString: '',
+            toggle: []
+
             // categories: {
             //     '1B': 'Singles',
             //     '2B': 'Doubles',
@@ -47757,7 +47761,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "form",
     [
       _vm._l(_vm.categories, function(category) {
         return _c("div", [
@@ -47770,7 +47774,47 @@ var render = function() {
             [
               _c("label", { staticClass: "btn btn-secondary stats" }, [
                 _c("input", {
-                  attrs: { type: "checkbox", autocomplete: "off" }
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.toggle,
+                      expression: "toggle"
+                    }
+                  ],
+                  attrs: {
+                    type: "checkbox",
+                    "true-value": "1",
+                    "false-value": "0",
+                    autocomplete: "off",
+                    name: "category"
+                  },
+                  domProps: {
+                    checked: Array.isArray(_vm.toggle)
+                      ? _vm._i(_vm.toggle, null) > -1
+                      : _vm._q(_vm.toggle, "1")
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.toggle,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? "1" : "0"
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.toggle = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.toggle = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.toggle = $$c
+                      }
+                    }
+                  }
                 }),
                 _vm._v(" " + _vm._s(category) + "\n            ")
               ])
@@ -47783,9 +47827,14 @@ var render = function() {
         "button",
         {
           staticClass: "submitStats btn btn-outline-success mt-2",
-          attrs: { type: "submit" }
+          attrs: {
+            id: "submitStats",
+            method: "get",
+            action: "/stats",
+            type: "submit"
+          }
         },
-        [_vm._v("Dark")]
+        [_vm._v("Refresh")]
       )
     ],
     2
@@ -47887,7 +47936,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n#displayDiv {\n    overflow-y: scroll;\n    display: block;\n    height: 70%;\n    width: 80%;\n    margin-top: 60px;\n}\n", ""]);
+exports.push([module.i, "\n#displayDiv {\n    overflow-y: scroll;\n    display: block;\n    height: 50%;\n    width: 80%;\n    margin-top: 60px;\n    position: relative;\n}\ntable {\n    width: 100%;\n}\nth,\ntd {\n    width: 5%;\n}\n", ""]);
 
 // exports
 
@@ -47942,57 +47991,59 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "displayDiv" } }, [
-    _c(
-      "table",
-      {
-        staticClass:
-          "table table-sm table-dark table-striped table-responsive-sm table-hover"
-      },
-      [
-        _c("thead", [
-          _c(
+  return _c(
+    "table",
+    {
+      staticClass:
+        "table table-sm table-dark table-striped table-responsive table-hover header-fixed"
+    },
+    [
+      _c("thead", [
+        _c(
+          "tr",
+          [
+            _c("th", [_vm._v("Player")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Position")]),
+            _vm._v(" "),
+            _vm._l(_vm.categories, function(category) {
+              return _c("th", [_vm._v(_vm._s(category))])
+            }),
+            _vm._v(" "),
+            _c("th", [_vm._v("Total")])
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.players, function(player, index) {
+          return _c(
             "tr",
             [
-              _c("th", [_vm._v("Player")]),
+              _c("td", { staticStyle: { width: "10%" } }, [
+                _vm._v(_vm._s(player.name))
+              ]),
               _vm._v(" "),
-              _c("th", [_vm._v("Position")]),
+              _c("td", { staticStyle: { width: "5%" } }, [
+                _vm._v(_vm._s(player.position))
+              ]),
               _vm._v(" "),
-              _vm._l(_vm.categories, function(category) {
-                return _c("th", [_vm._v(_vm._s(category))])
+              _vm._l(_vm.zscorearray, function(zscores, indexx) {
+                return zscores[indexx]
+                  ? _c("td", [_vm._v(_vm._s(zscores[index]))])
+                  : _vm._e()
               }),
               _vm._v(" "),
-              _c("th", [_vm._v("Total")])
+              _c("td", [_vm._v(_vm._s(_vm.totalarray[index]))])
             ],
             2
           )
-        ]),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.players, function(player, index) {
-            return _c(
-              "tr",
-              [
-                _c("td", [_vm._v(_vm._s(player.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(player.position))]),
-                _vm._v(" "),
-                _vm._l(_vm.zscorearray, function(zscores, indexx) {
-                  return zscores[indexx]
-                    ? _c("td", [_vm._v(_vm._s(zscores[index]))])
-                    : _vm._e()
-                }),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.totalarray[index]))])
-              ],
-              2
-            )
-          })
-        )
-      ]
-    )
-  ])
+        })
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
