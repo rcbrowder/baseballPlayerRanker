@@ -16,6 +16,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('batter-buttons', require('./components/BatterButtons.vue'));
+Vue.component('stats-table', require('./components/StatsTable.vue'));
+
 
 const app = new Vue({
     el: '#app'
