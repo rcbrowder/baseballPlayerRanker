@@ -13,7 +13,7 @@ class StatsController extends Controller
 
     public function index(Request $request) {
 
-        dd($request);
+        // dd($request);
 
         // Collection of first 20 players
         $players = \DB::table('players')->get();
@@ -79,7 +79,33 @@ class StatsController extends Controller
         return view('stats2', compact('totalArray', 'zscoreArray', 'players', 'categories'));
     }
 
-    public function buttons() {
+    public function refactor() {
+        $play = [];
 
+        $stats = \DB::table('stats')->get();
+        $stats = $stats->slice(0, 2000);
+
+        $players = \DB::table('players')->get();
+        $players = $players->slice(0,15);
+
+        foreach ($players as $player) {
+            $play[$player->id] = [
+                'name' => $player->name,
+                'position' => $player->position,
+
+                'AB' => $stats->where('player_id', $player->id)->where('category_id', 'AB')->pluck('zscore')->pop(),
+
+
+                'LOB' => $stats->where('player_id', $player->id)->where('category_id', 'LOB')->pluck('zscore')->pop(),
+
+                'PA' => $stats->where('player_id', $player->id)->where('category_id', 'PA')->pluck('zscore')->pop(),
+
+                'total' => 0
+            ];
+        }
+
+        $play = collect($play);
+
+        return view('stats2', compact('play'));
     }
 }

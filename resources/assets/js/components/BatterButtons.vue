@@ -16,7 +16,7 @@
 <script>
     export default {
 
-        props: ['categories'],
+        props: ['play'],
 
         data() {
             return {

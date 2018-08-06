@@ -6,16 +6,20 @@
                 <tr>
                     <th>Player</th>
                     <th>Position</th>
-                    <th v-for="category in categories">{{ category }}</th>
+                    <th>AB</th>
+                    <th>LOB</th>
+                    <th>PA</th>
                     <th>Total</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(player,index) in players">
+                <tr v-for="player in total">
                     <td style="width:10%;">{{player.name}}</td>
                     <td style="width:5%;">{{player.position}}</td>
-                    <td v-for="(zscores, indexx) in zscorearray" v-if="zscores[indexx]">{{ zscores[index] }}</td>
-                    <td>{{ totalarray[index] }}</td>
+                    <td>{{ player.AB }}</td>
+                    <td>{{ player.LOB }}</td>
+                    <td>{{ player.LOB }}</td>
+                    <td>{{ player.total }}</td>
                 </tr>
             </tbody>
         </table>
@@ -27,11 +31,36 @@
 
 <script>
     export default {
-        props: ['zscorearray', 'players', 'categories', 'totalarray'],
+
+        props: ['play'],
 
         data: () => ({
-
+            AB: 1,
+            LOB: 1,
+            PA: 1,
         }),
+
+        methods: {
+            notNull: function(val) {
+                if (val == null) {
+                    return 0;
+                }
+                return val;
+            }
+        },
+
+
+        computed: {
+            total: function() {
+                var newPlayers = this.play;
+                for (var player in newPlayers) {
+                    console.log(player);
+                    console.log(newPlayers[player].total);
+                    newPlayers[player].total = (this.AB * this.notNull(newPlayers[player].AB)) + (this.LOB * this.notNull(newPlayers[player].LOB)) + (this.PA * this.notNull(newPlayers[player].PA));
+                }
+                return newPlayers;
+            },
+        }
     }
 </script>
 

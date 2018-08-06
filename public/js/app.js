@@ -47729,7 +47729,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-    props: ['categories'],
+    props: ['play'],
 
     data: function data() {
         return {
@@ -47986,12 +47986,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['zscorearray', 'players', 'categories', 'totalarray'],
+
+    props: ['play'],
 
     data: function data() {
-        return {};
+        return {
+            AB: 1,
+            LOB: 1,
+            PA: 1
+        };
+    },
+
+    methods: {
+        notNull: function notNull(val) {
+            if (val == null) {
+                return 0;
+            }
+            return val;
+        }
+    },
+
+    computed: {
+        total: function total() {
+            var newPlayers = this.play;
+            for (var player in newPlayers) {
+                console.log(player);
+                console.log(newPlayers[player].total);
+                newPlayers[player].total = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA);
+            }
+            return newPlayers;
+        }
     }
 });
 
@@ -48010,54 +48040,55 @@ var render = function() {
         "table table-sm table-dark table-striped table-responsive table-hover header-fixed"
     },
     [
-      _c("thead", [
-        _c(
-          "tr",
-          [
-            _c("th", [_vm._v("Player")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Position")]),
-            _vm._v(" "),
-            _vm._l(_vm.categories, function(category) {
-              return _c("th", [_vm._v(_vm._s(category))])
-            }),
-            _vm._v(" "),
-            _c("th", [_vm._v("Total")])
-          ],
-          2
-        )
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.players, function(player, index) {
-          return _c(
-            "tr",
-            [
-              _c("td", { staticStyle: { width: "10%" } }, [
-                _vm._v(_vm._s(player.name))
-              ]),
-              _vm._v(" "),
-              _c("td", { staticStyle: { width: "5%" } }, [
-                _vm._v(_vm._s(player.position))
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.zscorearray, function(zscores, indexx) {
-                return zscores[indexx]
-                  ? _c("td", [_vm._v(_vm._s(zscores[index]))])
-                  : _vm._e()
-              }),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.totalarray[index]))])
-            ],
-            2
-          )
+        _vm._l(_vm.total, function(player) {
+          return _c("tr", [
+            _c("td", { staticStyle: { width: "10%" } }, [
+              _vm._v(_vm._s(player.name))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticStyle: { width: "5%" } }, [
+              _vm._v(_vm._s(player.position))
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(player.AB))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(player.LOB))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(player.LOB))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(player.total))])
+          ])
         })
       )
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Player")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Position")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("AB")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("LOB")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("PA")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
