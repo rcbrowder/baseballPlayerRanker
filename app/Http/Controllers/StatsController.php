@@ -11,7 +11,10 @@ use MySportsFeeds\MySportsFeeds;
 class StatsController extends Controller
 {
 
-    public function index() {
+    public function index(Request $request) {
+
+        dd($request);
+
         // Collection of first 20 players
         $players = \DB::table('players')->get();
         $players = $players->slice(0,15);
@@ -71,6 +74,7 @@ class StatsController extends Controller
         $totalArray = collect($totalArray);
         $zscoreArray = collect($zscoreArray)->values();
 
+        // dd($categories);
 
         return view('stats2', compact('totalArray', 'zscoreArray', 'players', 'categories'));
     }

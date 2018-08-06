@@ -14314,7 +14314,19 @@ Vue.component('batter-buttons', __webpack_require__(42));
 Vue.component('stats-table', __webpack_require__(48));
 
 var app = new Vue({
-  el: '#app'
+    el: '#display',
+    data: {
+        toggle: []
+    }
+});
+
+var buttongroup = new Vue({
+    el: '#buttongroup',
+    data: {
+        toggle: [],
+        checked: false
+    },
+    methods: {}
 });
 
 /***/ }),

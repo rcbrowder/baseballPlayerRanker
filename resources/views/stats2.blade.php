@@ -3,23 +3,24 @@
 @section('content')
 <div id="statspage" class="container-fluid content">
     <div class="row">
-        <div class="col col-sm-2 btn-group-vertical btn-group-toggle ml-2" data-toggle="buttons">
-            <button type="button" class="btn btn-secondary">
-                <label>
-                    <input type="checkbox" v-model="toggle1" true-value="1" false-value="0" autocomplete="off" name="">{{ $categories[0] }}
-                </label>
-            </button>
-            <button type="button" class="btn btn-secondary">
-                <label>
-                    <input type="checkbox" v-model="toggle2" true-value="1" false-value="0" autocomplete="off" name="">{{ $categories[1] }}
-                </label>
-            </button>
-            <button type="button" class="btn btn-secondary">
-                <label>
-                    <input type="checkbox" v-model="toggle3" true-value="1" false-value="0" autocomplete="off" name="">{{ $categories[2] }}
-                </label>
-            </button>
-        </div>
+        <form id="buttongroup" class="col col-sm-2 btn-group-vertical btn-group-toggle ml-2">
+
+            <label class="btn btn-secondary" :class="{active: toggle.indexOf('PA') > -1}">
+                <input type="checkbox" v-model="toggle" autocomplete="off" name="PA" value="PA">{{ $categories[0] }}
+            </label>
+
+            <label class="btn btn-secondary" :class="{active: toggle.indexOf('LOB') > -1}">
+                <input type="checkbox" v-model="toggle" autocomplete="off" name="LOB" value="LOB">{{ $categories[1] }}
+            </label>
+
+            <label class="btn btn-secondary" :class="{active: toggle.indexOf('AB') > -1}">
+                <input type="checkbox" v-model="toggle" autocomplete="off" name="AB" value="AB">{{ $categories[2] }}
+            </label>
+
+            <button id="submitStats" method="get" action="/stats" type="submit" class="submitStats btn btn-outline-success mt-2">Refresh</button>
+        </form>
+
+
 
 
         <!-- <nav id="sidebar" class="col col-sm-2 navbar navbar-expand-sm navbar-dark">
