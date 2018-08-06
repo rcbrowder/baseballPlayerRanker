@@ -47950,7 +47950,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n#displayDiv {\n    overflow: scroll;\n    display: block;\n    height: 50%;\n    width: 70%;\n    margin-top: 60px;\n    position: relative;\n}\ntable {\n    width: 70%;\n}\nth,\ntd {\n    width: 5%;\n}\n", ""]);
+exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 60px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n}\n#buttongroup {\n    margin-top: 60px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
 
 // exports
 
@@ -48048,6 +48048,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -48058,11 +48083,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             toggle: false,
             AB: true,
             LOB: true,
-            PA: true,
+            PA: false,
             R: true,
             H: true,
-            twoB: true,
-            threeB: true,
+            twoB: false,
+            threeB: false,
             HR: true
         };
     },
@@ -48112,410 +48137,448 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      {
-        staticClass: "col col-sm-2 btn-group-vertical btn-group-toggle ml-2",
-        attrs: { id: "buttongroup" }
-      },
-      [
-        _c(
-          "label",
-          { staticClass: "btn btn-secondary", class: { active: _vm.PA == 1 } },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.PA,
-                  expression: "PA"
-                }
-              ],
-              attrs: {
-                type: "checkbox",
-                autocomplete: "off",
-                name: "PA",
-                value: "PA"
-              },
-              domProps: {
-                checked: Array.isArray(_vm.PA)
-                  ? _vm._i(_vm.PA, "PA") > -1
-                  : _vm.PA
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.PA,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = "PA",
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.PA = $$a.concat([$$v]))
+  return _c(
+    "div",
+    { staticClass: "row h-100 w-100", attrs: { id: "#wrapper" } },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "col col-sm-2 btn-group-vertical btn-group-toggle",
+          attrs: { id: "buttongroup" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.PA == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.PA,
+                    expression: "PA"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "PA",
+                  value: "PA"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.PA)
+                    ? _vm._i(_vm.PA, "PA") > -1
+                    : _vm.PA
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.PA,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "PA",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.PA = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.PA = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.PA = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      _vm.PA = $$c
                     }
-                  } else {
-                    _vm.PA = $$c
                   }
                 }
-              }
-            }),
-            _vm._v("Plate Appearances\n            ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "btn btn-secondary", class: { active: _vm.LOB == 1 } },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.LOB,
-                  expression: "LOB"
-                }
-              ],
-              attrs: {
-                type: "checkbox",
-                autocomplete: "off",
-                name: "LOB",
-                value: "LOB"
-              },
-              domProps: {
-                checked: Array.isArray(_vm.LOB)
-                  ? _vm._i(_vm.LOB, "LOB") > -1
-                  : _vm.LOB
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.LOB,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = "LOB",
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.LOB = $$a.concat([$$v]))
+              }),
+              _vm._v(" "),
+              _vm._m(0)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.LOB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.LOB,
+                    expression: "LOB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "LOB",
+                  value: "LOB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.LOB)
+                    ? _vm._i(_vm.LOB, "LOB") > -1
+                    : _vm.LOB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.LOB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "LOB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.LOB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.LOB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.LOB = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      _vm.LOB = $$c
                     }
-                  } else {
-                    _vm.LOB = $$c
                   }
                 }
-              }
-            }),
-            _vm._v("Left on Base\n            ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "btn btn-secondary", class: { active: _vm.AB == 1 } },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.AB,
-                  expression: "AB"
-                }
-              ],
-              attrs: {
-                type: "checkbox",
-                autocomplete: "off",
-                name: "AB",
-                value: "AB"
-              },
-              domProps: {
-                checked: Array.isArray(_vm.AB)
-                  ? _vm._i(_vm.AB, "AB") > -1
-                  : _vm.AB
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.AB,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = "AB",
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.AB = $$a.concat([$$v]))
+              }),
+              _vm._v(" "),
+              _vm._m(1)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.AB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.AB,
+                    expression: "AB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "AB",
+                  value: "AB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.AB)
+                    ? _vm._i(_vm.AB, "AB") > -1
+                    : _vm.AB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.AB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "AB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.AB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.AB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.AB = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      _vm.AB = $$c
                     }
-                  } else {
-                    _vm.AB = $$c
                   }
                 }
-              }
-            }),
-            _vm._v("At Bats\n            ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "btn btn-secondary", class: { active: _vm.R == 1 } },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.R,
-                  expression: "R"
-                }
-              ],
-              attrs: {
-                type: "checkbox",
-                autocomplete: "off",
-                name: "R",
-                value: "R"
-              },
-              domProps: {
-                checked: Array.isArray(_vm.R) ? _vm._i(_vm.R, "R") > -1 : _vm.R
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.R,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = "R",
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.R = $$a.concat([$$v]))
+              }),
+              _vm._v(" "),
+              _vm._m(2)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.R == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.R,
+                    expression: "R"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "R",
+                  value: "R"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.R)
+                    ? _vm._i(_vm.R, "R") > -1
+                    : _vm.R
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.R,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "R",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.R = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.R = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.R = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      _vm.R = $$c
                     }
-                  } else {
-                    _vm.R = $$c
                   }
                 }
-              }
-            }),
-            _vm._v("Runs\n            ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "btn btn-secondary", class: { active: _vm.H == 1 } },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.H,
-                  expression: "H"
-                }
-              ],
-              attrs: {
-                type: "checkbox",
-                autocomplete: "off",
-                name: "H",
-                value: "H"
-              },
-              domProps: {
-                checked: Array.isArray(_vm.H) ? _vm._i(_vm.H, "H") > -1 : _vm.H
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.H,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = "H",
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.H = $$a.concat([$$v]))
+              }),
+              _vm._v(" "),
+              _vm._m(3)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.H == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.H,
+                    expression: "H"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "H",
+                  value: "H"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.H)
+                    ? _vm._i(_vm.H, "H") > -1
+                    : _vm.H
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.H,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "H",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.H = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.H = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.H = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      _vm.H = $$c
                     }
-                  } else {
-                    _vm.H = $$c
                   }
                 }
-              }
-            }),
-            _vm._v("Hits\n            ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "btn btn-secondary",
-            class: { active: _vm.twoB == 1 }
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.twoB,
-                  expression: "twoB"
-                }
-              ],
-              attrs: {
-                type: "checkbox",
-                autocomplete: "off",
-                name: "twoB",
-                value: "twoB"
-              },
-              domProps: {
-                checked: Array.isArray(_vm.twoB)
-                  ? _vm._i(_vm.twoB, "twoB") > -1
-                  : _vm.twoB
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.twoB,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = "twoB",
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.twoB = $$a.concat([$$v]))
+              }),
+              _vm._v(" "),
+              _vm._m(4)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.twoB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.twoB,
+                    expression: "twoB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "twoB",
+                  value: "twoB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.twoB)
+                    ? _vm._i(_vm.twoB, "twoB") > -1
+                    : _vm.twoB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.twoB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "twoB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.twoB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.twoB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.twoB = $$a
-                          .slice(0, $$i)
-                          .concat($$a.slice($$i + 1)))
+                      _vm.twoB = $$c
                     }
-                  } else {
-                    _vm.twoB = $$c
                   }
                 }
-              }
-            }),
-            _vm._v("Doubles\n            ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "btn btn-secondary",
-            class: { active: _vm.threeB == 1 }
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.threeB,
-                  expression: "threeB"
-                }
-              ],
-              attrs: {
-                type: "checkbox",
-                autocomplete: "off",
-                name: "threeB",
-                value: "threeB"
-              },
-              domProps: {
-                checked: Array.isArray(_vm.threeB)
-                  ? _vm._i(_vm.threeB, "threeB") > -1
-                  : _vm.threeB
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.threeB,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = "threeB",
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.threeB = $$a.concat([$$v]))
+              }),
+              _vm._v(" "),
+              _vm._m(5)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.threeB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.threeB,
+                    expression: "threeB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "threeB",
+                  value: "threeB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.threeB)
+                    ? _vm._i(_vm.threeB, "threeB") > -1
+                    : _vm.threeB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.threeB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "threeB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.threeB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.threeB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.threeB = $$a
-                          .slice(0, $$i)
-                          .concat($$a.slice($$i + 1)))
+                      _vm.threeB = $$c
                     }
-                  } else {
-                    _vm.threeB = $$c
                   }
                 }
-              }
-            }),
-            _vm._v("Triples\n            ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "btn btn-secondary", class: { active: _vm.HR == 1 } },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.HR,
-                  expression: "HR"
-                }
-              ],
-              attrs: {
-                type: "checkbox",
-                autocomplete: "off",
-                name: "HR",
-                value: "HR"
-              },
-              domProps: {
-                checked: Array.isArray(_vm.HR)
-                  ? _vm._i(_vm.HR, "HR") > -1
-                  : _vm.HR
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.HR,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = "HR",
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.HR = $$a.concat([$$v]))
+              }),
+              _vm._v(" "),
+              _vm._m(6)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.HR == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.HR,
+                    expression: "HR"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "HR",
+                  value: "HR"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.HR)
+                    ? _vm._i(_vm.HR, "HR") > -1
+                    : _vm.HR
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.HR,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "HR",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.HR = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.HR = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.HR = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      _vm.HR = $$c
                     }
-                  } else {
-                    _vm.HR = $$c
                   }
                 }
-              }
-            }),
-            _vm._v("Home Runs\n            ")
-          ]
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "col col-sm-9 text-center", attrs: { id: "display" } },
-      [
+              }),
+              _vm._v(" "),
+              _vm._m(7)
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col col-md-10", attrs: { id: "display" } }, [
         _c(
           "table",
           {
@@ -48595,11 +48658,76 @@ var render = function() {
             )
           ]
         )
-      ]
-    )
-  ])
+      ])
+    ]
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Plate Appearances")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Left on Base")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  At Bats")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Runs")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Hits")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Doubles")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Triples")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Home Runs")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

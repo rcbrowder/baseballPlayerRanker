@@ -1,42 +1,67 @@
 <template>
-    <div class="row">
-        <div id="buttongroup" class="col col-sm-2 btn-group-vertical btn-group-toggle ml-2">
+    <div id="#wrapper" class="row h-100 w-100">
+        <div id="buttongroup" class="col col-sm-2 btn-group-vertical btn-group-toggle">
 
-            <label class="btn btn-secondary" :class="{active: PA == 1}">
-                <input type="checkbox" v-model="PA" autocomplete="off" name="PA" value="PA">Plate Appearances
-            </label>
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: PA == 1}">
+                <input type="checkbox" v-model="PA" autocomplete="off" name="PA" value="PA">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Plate Appearances</label>
+                </div>
+            </div>
 
-            <label class="btn btn-secondary" :class="{active: LOB == 1}">
-                <input type="checkbox" v-model="LOB" autocomplete="off" name="LOB" value="LOB">Left on Base
-            </label>
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: LOB == 1}">
+                <input type="checkbox" v-model="LOB" autocomplete="off" name="LOB" value="LOB">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Left on Base</label>
+                </div>
+            </div>
 
-            <label class="btn btn-secondary" :class="{active: AB == 1}">
-                <input type="checkbox" v-model="AB" autocomplete="off" name="AB" value="AB">At Bats
-            </label>
 
-            <label class="btn btn-secondary" :class="{active: R == 1}">
-                <input type="checkbox" v-model="R" autocomplete="off" name="R" value="R">Runs
-            </label>
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: AB == 1}">
+                <input type="checkbox" v-model="AB" autocomplete="off" name="AB" value="AB">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;At Bats</label>
+                </div>
+            </div>
 
-            <label class="btn btn-secondary" :class="{active: H == 1}">
-                <input type="checkbox" v-model="H" autocomplete="off" name="H" value="H">Hits
-            </label>
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: R == 1}">
+                <input type="checkbox" v-model="R" autocomplete="off" name="R" value="R">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Runs</label>
+                </div>
+            </div>
 
-            <label class="btn btn-secondary" :class="{active: twoB == 1}">
-                <input type="checkbox" v-model="twoB" autocomplete="off" name="twoB" value="twoB">Doubles
-            </label>
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: H == 1}">
+                <input type="checkbox" v-model="H" autocomplete="off" name="H" value="H">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Hits</label>
+                </div>
+            </div>
 
-            <label class="btn btn-secondary" :class="{active: threeB == 1}">
-                <input type="checkbox" v-model="threeB" autocomplete="off" name="threeB" value="threeB">Triples
-            </label>
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: twoB == 1}">
+                <input type="checkbox" v-model="twoB" autocomplete="off" name="twoB" value="twoB">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Doubles</label>
+                </div>
+            </div>
 
-            <label class="btn btn-secondary" :class="{active: HR == 1}">
-                <input type="checkbox" v-model="HR" autocomplete="off" name="HR" value="HR">Home Runs
-            </label>
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: threeB == 1}">
+                <input type="checkbox" v-model="threeB" autocomplete="off" name="threeB" value="threeB">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Triples</label>
+                </div>
+            </div>
+
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: HR == 1}">
+                <input type="checkbox" v-model="HR" autocomplete="off" name="HR" value="HR">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Home Runs</label>
+                </div>
+            </div>
 
         </div>
 
-        <div id="display" class="col col-sm-9 text-center">
+        <div id="display" class="col col-md-10">
 
             <table class="table table-sm table-dark table-striped table-responsive table-hover header-fixed">
                 <thead>
@@ -94,11 +119,11 @@
             toggle: false,
             AB: true,
             LOB: true,
-            PA: true,
+            PA: false,
             R: true,
             H: true,
-            twoB: true,
-            threeB: true,
+            twoB: false,
+            threeB: false,
             HR: true,
         }),
 
@@ -150,21 +175,41 @@
 </script>
 
 <style>
-    #displayDiv {
+    table {
         overflow: scroll;
         display: block;
-        height: 50%;
-        width: 70%;
+        height: 80%;
+        width: 100%;
         margin-top: 60px;
         position: relative;
+        box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);
     }
 
-    table {
-        width: 70%;
+    #buttongroup {
+        margin-top: 60px;
+    }
+
+    #wrapper {
+        height: 100%;
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .btn-secondary:not(:disabled):not(.disabled):active,
+    .btn-secondary:not(:disabled):not(.disabled).active,
+    .show>.btn-secondary.dropdown-toggle {
+        background-color: #404040;
     }
 
     th,
     td {
         width: 5%;
+    }
+
+    .p-outline {
+        padding: 15px;
+        width: 100%;
+        box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);
+        margin-right: 0px;
     }
 </style>

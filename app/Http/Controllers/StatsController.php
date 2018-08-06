@@ -84,7 +84,7 @@ class StatsController extends Controller
         // $stats = $stats->slice(0, 10000);
 
         $players = \DB::table('players')->get();
-        $players = $players->slice(0,15);
+        $players = $players->slice(0,1);
 
         $cats = ['AB', 'LOB', 'PA', 'R', 'H'];
 
