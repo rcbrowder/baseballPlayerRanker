@@ -47936,7 +47936,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n#displayDiv {\n    overflow-y: scroll;\n    display: block;\n    height: 50%;\n    width: 80%;\n    margin-top: 60px;\n    position: relative;\n}\ntable {\n    width: 100%;\n}\nth,\ntd {\n    width: 5%;\n}\n", ""]);
+exports.push([module.i, "\n#displayDiv {\n    overflow: scroll;\n    display: block;\n    height: 50%;\n    width: 70%;\n    margin-top: 60px;\n    position: relative;\n}\ntable {\n    width: 70%;\n}\nth,\ntd {\n    width: 5%;\n}\n", ""]);
 
 // exports
 

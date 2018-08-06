@@ -72,10 +72,10 @@ class StatsController extends Controller
         $zscoreArray = collect($zscoreArray)->values();
 
 
-        return view('stats', compact('totalArray', 'zscoreArray', 'players', 'categories'));
+        return view('stats2', compact('totalArray', 'zscoreArray', 'players', 'categories'));
     }
 
     public function buttons() {
-        
+
     }
 }

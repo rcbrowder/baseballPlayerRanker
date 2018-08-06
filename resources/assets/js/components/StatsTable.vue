@@ -37,16 +37,16 @@
 
 <style>
     #displayDiv {
-        overflow-y: scroll;
+        overflow: scroll;
         display: block;
         height: 50%;
-        width: 80%;
+        width: 70%;
         margin-top: 60px;
         position: relative;
     }
 
     table {
-        width: 100%;
+        width: 70%;
     }
 
     th,
