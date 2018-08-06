@@ -48012,6 +48012,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -48022,7 +48058,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             toggle: false,
             AB: true,
             LOB: true,
-            PA: true
+            PA: true,
+            R: true,
+            H: true,
+            twoB: true,
+            threeB: true,
+            HR: true
         };
     },
 
@@ -48039,11 +48080,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         total: function total() {
             var newPlayers = this.play;
             for (var player in newPlayers) {
-                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA);
+                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA) + this.R * this.notNull(newPlayers[player].R) + this.H * this.notNull(newPlayers[player].H) + this.twoB * this.notNull(newPlayers[player].twoB) + this.threeB * this.notNull(newPlayers[player].threeB) + this.HR * this.notNull(newPlayers[player].HR);
                 newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
             }
 
-            return newPlayers;
+            var sortable = [];
+            for (var key in newPlayers) {
+                if (newPlayers.hasOwnProperty(key)) {
+                    sortable.push([key, newPlayers[key]]);
+                }
+            }
+            sortable.sort(function (a, b) {
+                return b[1].total - a[1].total;
+            });
+
+            var rv = {};
+            for (var i = 0; i < sortable.length; ++i) {
+                rv[sortable[i]] = sortable[i][1];
+            }
+            console.log(rv);
+            return rv;
         }
     }
 });
@@ -48108,7 +48164,7 @@ var render = function() {
                 }
               }
             }),
-            _vm._v("PA\n            ")
+            _vm._v("Plate Appearances\n            ")
           ]
         ),
         _vm._v(" "),
@@ -48156,7 +48212,7 @@ var render = function() {
                 }
               }
             }),
-            _vm._v("LOB\n            ")
+            _vm._v("Left on Base\n            ")
           ]
         ),
         _vm._v(" "),
@@ -48204,7 +48260,253 @@ var render = function() {
                 }
               }
             }),
-            _vm._v("AB\n            ")
+            _vm._v("At Bats\n            ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "btn btn-secondary", class: { active: _vm.R == 1 } },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.R,
+                  expression: "R"
+                }
+              ],
+              attrs: {
+                type: "checkbox",
+                autocomplete: "off",
+                name: "R",
+                value: "R"
+              },
+              domProps: {
+                checked: Array.isArray(_vm.R) ? _vm._i(_vm.R, "R") > -1 : _vm.R
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.R,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "R",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.R = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.R = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.R = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v("Runs\n            ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "btn btn-secondary", class: { active: _vm.H == 1 } },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.H,
+                  expression: "H"
+                }
+              ],
+              attrs: {
+                type: "checkbox",
+                autocomplete: "off",
+                name: "H",
+                value: "H"
+              },
+              domProps: {
+                checked: Array.isArray(_vm.H) ? _vm._i(_vm.H, "H") > -1 : _vm.H
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.H,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "H",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.H = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.H = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.H = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v("Hits\n            ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass: "btn btn-secondary",
+            class: { active: _vm.twoB == 1 }
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.twoB,
+                  expression: "twoB"
+                }
+              ],
+              attrs: {
+                type: "checkbox",
+                autocomplete: "off",
+                name: "twoB",
+                value: "twoB"
+              },
+              domProps: {
+                checked: Array.isArray(_vm.twoB)
+                  ? _vm._i(_vm.twoB, "twoB") > -1
+                  : _vm.twoB
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.twoB,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "twoB",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.twoB = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.twoB = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.twoB = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v("Doubles\n            ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass: "btn btn-secondary",
+            class: { active: _vm.threeB == 1 }
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.threeB,
+                  expression: "threeB"
+                }
+              ],
+              attrs: {
+                type: "checkbox",
+                autocomplete: "off",
+                name: "threeB",
+                value: "threeB"
+              },
+              domProps: {
+                checked: Array.isArray(_vm.threeB)
+                  ? _vm._i(_vm.threeB, "threeB") > -1
+                  : _vm.threeB
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.threeB,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "threeB",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.threeB = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.threeB = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.threeB = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v("Triples\n            ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "btn btn-secondary", class: { active: _vm.HR == 1 } },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.HR,
+                  expression: "HR"
+                }
+              ],
+              attrs: {
+                type: "checkbox",
+                autocomplete: "off",
+                name: "HR",
+                value: "HR"
+              },
+              domProps: {
+                checked: Array.isArray(_vm.HR)
+                  ? _vm._i(_vm.HR, "HR") > -1
+                  : _vm.HR
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.HR,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "HR",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.HR = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.HR = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.HR = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v("Home Runs\n            ")
           ]
         )
       ]
@@ -48227,13 +48529,23 @@ var render = function() {
                 _vm._v(" "),
                 _c("th", [_vm._v("Position")]),
                 _vm._v(" "),
+                _c("th", [_vm._v("Total Z-Score")]),
+                _vm._v(" "),
                 _vm.AB === true ? _c("th", [_vm._v("AB")]) : _vm._e(),
                 _vm._v(" "),
                 _vm.LOB === true ? _c("th", [_vm._v("LOB")]) : _vm._e(),
                 _vm._v(" "),
                 _vm.PA === true ? _c("th", [_vm._v("PA")]) : _vm._e(),
                 _vm._v(" "),
-                _c("th", [_vm._v("Total")])
+                _vm.R === true ? _c("th", [_vm._v("R")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.H === true ? _c("th", [_vm._v("H")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.twoB === true ? _c("th", [_vm._v("2B")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.threeB === true ? _c("th", [_vm._v("3B")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.HR === true ? _c("th", [_vm._v("HR")]) : _vm._e()
               ])
             ]),
             _vm._v(" "),
@@ -48241,13 +48553,11 @@ var render = function() {
               "tbody",
               _vm._l(_vm.total, function(player) {
                 return _c("tr", [
-                  _c("td", { staticStyle: { width: "10%" } }, [
-                    _vm._v(_vm._s(player.name))
-                  ]),
+                  _c("td", [_vm._v(_vm._s(player.name))]),
                   _vm._v(" "),
-                  _c("td", { staticStyle: { width: "5%" } }, [
-                    _vm._v(_vm._s(player.position))
-                  ]),
+                  _c("td", [_vm._v(_vm._s(player.position))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(player.total))]),
                   _vm._v(" "),
                   _vm.AB === true
                     ? _c("td", [_vm._v(_vm._s(player.AB))])
@@ -48261,7 +48571,25 @@ var render = function() {
                     ? _c("td", [_vm._v(_vm._s(player.PA))])
                     : _vm._e(),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(player.total))])
+                  _vm.R === true
+                    ? _c("td", [_vm._v(_vm._s(player.R))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.H === true
+                    ? _c("td", [_vm._v(_vm._s(player.H))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.twoB === true
+                    ? _c("td", [_vm._v(_vm._s(player.twoB))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.threeB === true
+                    ? _c("td", [_vm._v(_vm._s(player.threeB))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.HR === true
+                    ? _c("td", [_vm._v(_vm._s(player.HR))])
+                    : _vm._e()
                 ])
               })
             )
