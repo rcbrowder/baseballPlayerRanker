@@ -20,19 +20,19 @@ Vue.component('stats-table', require('./components/StatsTable.vue'));
 
 
 const app = new Vue({
-    el: '#display',
+    el: '#statspage',
     data: {
         toggle: [],
     }
 });
 
-const buttongroup = new Vue({
-    el: '#buttongroup',
-    data: {
-        toggle: [],
-        checked: false,
-    },
-    methods: {
-        
-    }
-});
+// const buttongroup = new Vue({
+//     el: '#buttongroup',
+//     data: {
+//         toggle: [],
+//         checked: false,
+//     },
+//     methods: {
+//
+//     }
+// });

@@ -14314,20 +14314,22 @@ Vue.component('batter-buttons', __webpack_require__(42));
 Vue.component('stats-table', __webpack_require__(48));
 
 var app = new Vue({
-    el: '#display',
-    data: {
-        toggle: []
-    }
+  el: '#statspage',
+  data: {
+    toggle: []
+  }
 });
 
-var buttongroup = new Vue({
-    el: '#buttongroup',
-    data: {
-        toggle: [],
-        checked: false
-    },
-    methods: {}
-});
+// const buttongroup = new Vue({
+//     el: '#buttongroup',
+//     data: {
+//         toggle: [],
+//         checked: false,
+//     },
+//     methods: {
+//
+//     }
+// });
 
 /***/ }),
 /* 16 */
@@ -47990,6 +47992,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -47997,9 +48019,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            AB: 1,
-            LOB: 1,
-            PA: 1
+            toggle: false,
+            AB: true,
+            LOB: true,
+            PA: true
         };
     },
 
@@ -48019,6 +48042,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA);
                 newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
             }
+
             return newPlayers;
         }
     }
@@ -48032,62 +48056,222 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "table",
-    {
-      staticClass:
-        "table table-sm table-dark table-striped table-responsive table-hover header-fixed"
-    },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.total, function(player) {
-          return _c("tr", [
-            _c("td", { staticStyle: { width: "10%" } }, [
-              _vm._v(_vm._s(player.name))
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      {
+        staticClass: "col col-sm-2 btn-group-vertical btn-group-toggle ml-2",
+        attrs: { id: "buttongroup" }
+      },
+      [
+        _c(
+          "label",
+          { staticClass: "btn btn-secondary", class: { active: _vm.PA == 1 } },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.PA,
+                  expression: "PA"
+                }
+              ],
+              attrs: {
+                type: "checkbox",
+                autocomplete: "off",
+                name: "PA",
+                value: "PA"
+              },
+              domProps: {
+                checked: Array.isArray(_vm.PA)
+                  ? _vm._i(_vm.PA, "PA") > -1
+                  : _vm.PA
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.PA,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "PA",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.PA = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.PA = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.PA = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v("PA\n            ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "btn btn-secondary", class: { active: _vm.LOB == 1 } },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.LOB,
+                  expression: "LOB"
+                }
+              ],
+              attrs: {
+                type: "checkbox",
+                autocomplete: "off",
+                name: "LOB",
+                value: "LOB"
+              },
+              domProps: {
+                checked: Array.isArray(_vm.LOB)
+                  ? _vm._i(_vm.LOB, "LOB") > -1
+                  : _vm.LOB
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.LOB,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "LOB",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.LOB = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.LOB = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.LOB = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v("LOB\n            ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "btn btn-secondary", class: { active: _vm.AB == 1 } },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.AB,
+                  expression: "AB"
+                }
+              ],
+              attrs: {
+                type: "checkbox",
+                autocomplete: "off",
+                name: "AB",
+                value: "AB"
+              },
+              domProps: {
+                checked: Array.isArray(_vm.AB)
+                  ? _vm._i(_vm.AB, "AB") > -1
+                  : _vm.AB
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.AB,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "AB",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.AB = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.AB = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.AB = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v("AB\n            ")
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col col-sm-9 text-center", attrs: { id: "display" } },
+      [
+        _c(
+          "table",
+          {
+            staticClass:
+              "table table-sm table-dark table-striped table-responsive table-hover header-fixed"
+          },
+          [
+            _c("thead", [
+              _c("tr", [
+                _c("th", [_vm._v("Player")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Position")]),
+                _vm._v(" "),
+                _vm.AB === true ? _c("th", [_vm._v("AB")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.LOB === true ? _c("th", [_vm._v("LOB")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.PA === true ? _c("th", [_vm._v("PA")]) : _vm._e(),
+                _vm._v(" "),
+                _c("th", [_vm._v("Total")])
+              ])
             ]),
             _vm._v(" "),
-            _c("td", { staticStyle: { width: "5%" } }, [
-              _vm._v(_vm._s(player.position))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(player.AB))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(player.LOB))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(player.LOB))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(player.total))])
-          ])
-        })
-      )
-    ]
-  )
+            _c(
+              "tbody",
+              _vm._l(_vm.total, function(player) {
+                return _c("tr", [
+                  _c("td", { staticStyle: { width: "10%" } }, [
+                    _vm._v(_vm._s(player.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { width: "5%" } }, [
+                    _vm._v(_vm._s(player.position))
+                  ]),
+                  _vm._v(" "),
+                  _vm.AB === true
+                    ? _c("td", [_vm._v(_vm._s(player.AB))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.LOB === true
+                    ? _c("td", [_vm._v(_vm._s(player.LOB))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.PA === true
+                    ? _c("td", [_vm._v(_vm._s(player.PA))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(player.total))])
+                ])
+              })
+            )
+          ]
+        )
+      ]
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Player")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Position")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("AB")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("LOB")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("PA")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Total")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
