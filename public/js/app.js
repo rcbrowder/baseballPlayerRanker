@@ -48016,9 +48016,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         total: function total() {
             var newPlayers = this.play;
             for (var player in newPlayers) {
-                console.log(player);
-                console.log(newPlayers[player].total);
-                newPlayers[player].total = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA);
+                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA);
+                newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
             }
             return newPlayers;
         }
