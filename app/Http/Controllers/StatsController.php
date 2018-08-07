@@ -119,6 +119,6 @@ class StatsController extends Controller
 
         $play = collect($play);
 
-        return view('stats2', compact('play'));
+        return view('stats', compact('play'));
     }
 }

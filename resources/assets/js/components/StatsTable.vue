@@ -1,5 +1,7 @@
 <template>
     <div id="#wrapper" class="row h-100 w-100">
+
+
         <div id="buttongroup" class="col col-sm-2 btn-group-vertical btn-group-toggle">
 
             <div class="btn-secondary pretty p-switch p-outline" :class="{active: PA == 1}">
@@ -63,7 +65,7 @@
 
         <div id="display" class="col col-md-10">
 
-            <table class="table table-sm table-dark table-striped table-responsive table-hover header-fixed">
+            <table class="table table-dark table-striped table-responsive table-hover header-fixed">
                 <thead>
                     <tr>
                         <th>Player</th>
@@ -166,7 +168,6 @@
                 for (var i = 0; i < sortable.length; ++i) {
                     rv[sortable[i]] = sortable[i][1];
                 }
-                console.log(rv);
                 return rv;
 
             }
@@ -180,13 +181,14 @@
         display: block;
         height: 80%;
         width: 100%;
-        margin-top: 60px;
+        margin-top: 67px;
         position: relative;
         box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);
     }
 
     #buttongroup {
         margin-top: 60px;
+        min-width: 230px;
     }
 
     #wrapper {

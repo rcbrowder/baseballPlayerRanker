@@ -25,14 +25,3 @@ const app = new Vue({
         toggle: [],
     }
 });
-
-// const buttongroup = new Vue({
-//     el: '#buttongroup',
-//     data: {
-//         toggle: [],
-//         checked: false,
-//     },
-//     methods: {
-//
-//     }
-// });

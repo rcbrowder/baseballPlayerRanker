@@ -18,6 +18,7 @@
     "lodash": "^4.17.4",
     "popper.js": "^1.12",
     "pretty-checkbox": "^3.0.3",
+    "slideout": "^1.0.1",
     "vue": "^2.5.7"
   }
 }

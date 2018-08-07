@@ -15,17 +15,17 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/batters', function () {
-    return view('stats');
-});
-
-Route::get('/pitchers', function () {
-    return view('stats');
-});
+// Route::get('/batters', function () {
+//     Route:: view('stats', 'StatsController@refactor');
+// });
+//
+// Route::get('/pitchers', function () {
+//     return view('stats', 'StatsController@refactor');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/test', 'MysportsfeedController@insertZscores');
-Route::get('/stats2', 'StatsController@refactor');
+Route::get('/stats', 'StatsController@refactor');

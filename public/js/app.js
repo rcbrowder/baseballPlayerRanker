@@ -14320,17 +14320,6 @@ var app = new Vue({
   }
 });
 
-// const buttongroup = new Vue({
-//     el: '#buttongroup',
-//     data: {
-//         toggle: [],
-//         checked: false,
-//     },
-//     methods: {
-//
-//     }
-// });
-
 /***/ }),
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -47950,7 +47939,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 60px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n}\n#buttongroup {\n    margin-top: 60px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
+exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 67px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n}\n#buttongroup {\n    margin-top: 60px;\n    min-width: 230px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
 
 // exports
 
@@ -47961,6 +47950,8 @@ exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -48123,7 +48114,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             for (var i = 0; i < sortable.length; ++i) {
                 rv[sortable[i]] = sortable[i][1];
             }
-            console.log(rv);
             return rv;
         }
     }
@@ -48583,7 +48573,7 @@ var render = function() {
           "table",
           {
             staticClass:
-              "table table-sm table-dark table-striped table-responsive table-hover header-fixed"
+              "table table-dark table-striped table-responsive table-hover header-fixed"
           },
           [
             _c("thead", [
