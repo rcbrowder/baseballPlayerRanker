@@ -48637,8 +48637,8 @@ var render = function() {
                         "td",
                         {
                           class: {
-                            "text-success": player.AB > 0.6,
-                            "text-danger": player.AB < -0.6
+                            "text-success": player.AB > 0.5,
+                            "text-danger": player.AB < -0.5
                           }
                         },
                         [_vm._v(_vm._s(player.AB))]

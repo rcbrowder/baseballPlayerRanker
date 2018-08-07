@@ -90,7 +90,7 @@
                         <td>{{ player.position }}</td>
                         <td id="totalTD">{{ player.total }}</td>
 
-                        <td v-if="AB === true" :class="{'text-success': player.AB > 0.60, 'text-danger': player.AB < -0.60}">{{ player.AB }}</td>
+                        <td v-if="AB === true" :class="{'text-success': player.AB > 0.5, 'text-danger': player.AB < -0.5}">{{ player.AB }}</td>
 
                         <td v-if="LOB === true" :class="{'text-success': player.LOB > 0.60, 'text-danger': player.LOB < -0.60}">{{ player.LOB }}</td>
 
@@ -104,7 +104,7 @@
 
                         <td v-if="threeB === true" :class="{'text-success': player.threeB > 0.60, 'text-danger': player.threeB < -0.60}">{{ player.threeB }}</td>
 
-                        <td v-if="HR === true" :class="{'text-success': player.HR > 0.60, 'text-danger': player.HR < -0.60}">{{ player.HR }}</td>
+                        <td v-if="HR === true" :class="{'text-success': player.HR > 0.6, 'text-danger': player.HR < -0.6}">{{ player.HR }}</td>
 
 
                     </tr>
