@@ -12,17 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/batters', function () {
-    return view('batters');
-});
-
-Route::get('/pitchers', function () {
-    return view('pitchers');
-});
+// Route::get('/batters', function () {
+//     Route:: view('stats', 'StatsController@refactor');
+// });
+//
+// Route::get('/pitchers', function () {
+//     return view('stats', 'StatsController@refactor');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/test', 'MysportsfeedController@insertZscores');
+Route::get('/stats', 'StatsController@refactor');

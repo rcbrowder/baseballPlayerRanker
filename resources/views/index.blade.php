@@ -1,14 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Fantasy Baseball Player Ranker</title>
-        <!-- Adds Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    </head>
-    <body class="container">
+@extends('layouts.app')
 
-        
+@section('content')
 
-    </body>
-</html>
+
+<div class="d-flex flex-wrap h-100">
+
+    <div id="batterCol" class="flex-fill outerdiv">
+        <a href="{{ url('/stats') }}"><button type="button" class="btn btn-secondary btn-lg rounded-0 boarder boarder-dark myButtons"><strong>Batters</strong></button></a>
+        <div id="batterBG" class="grow"></div>
+
+    </div>
+
+    <div id="pitcherCol" class="flex-fill outerdiv">
+        <a href="{{ url('/stats') }}"><button type="button" class="btn btn-secondary btn-lg rounded-0 boarder boarder-dark myButtons" href="/pitchers"><strong>Pitchers</strong></button></a>
+        <div id="pitcherBG" class="grow"></div>
+    </div>
+</div>
+
+
+@endsection

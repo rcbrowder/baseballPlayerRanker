@@ -15,8 +15,13 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('batter-buttons', require('./components/BatterButtons.vue'));
+Vue.component('stats-table', require('./components/StatsTable.vue'));
+
 
 const app = new Vue({
-    el: '#app'
+    el: '#statspage',
+    data: {
+        toggle: [],
+    }
 });
