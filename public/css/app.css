@@ -11405,7 +11405,8 @@ body {
   height: 100%;
 }
 
-#statspage {
+#statspage,
+.grassBG {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -11502,7 +11503,8 @@ body {
   padding-right: 0px !important;
 }
 
-.content:before {
+.content:before,
+.grassBG:before {
   content: "";
   position: fixed;
   z-index: -1;
@@ -11519,8 +11521,17 @@ body {
           filter: blur(9px);
 }
 
-.content {
+.content,
+.grassBG {
   position: absolute;
   z-index: 0;
+}
+
+.ref .card {
+  margin-top: 20%;
+}
+
+.ref {
+  max-width: none;
 }
 
