@@ -14314,7 +14314,10 @@ Vue.component('batter-buttons', __webpack_require__(42));
 Vue.component('stats-table', __webpack_require__(48));
 
 var app = new Vue({
-  el: '#app'
+  el: '#statspage',
+  data: {
+    toggle: []
+  }
 });
 
 /***/ }),
@@ -47655,7 +47658,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.stats {\n    width: 100%;\n    border-radius: 0;\n    margin: auto;\n}\n#submitStats {\n    width: 100%;\n    border-radius: 0;\n}\n", ""]);
+exports.push([module.i, "\n.stats {\n    width: 100%;\n    border-radius: 0;\n    padding: 5%;\n    /* margin-left: 50%; */\n}\n#submitStats {\n    width: 100%;\n    border-radius: 0;\n    /* margin-left: 50%; */\n}\n.btn-group-toggle {\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -47717,10 +47720,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-    props: ['categories'],
+    props: ['play'],
 
     data: function data() {
         return {
+
+            catString: '',
+            toggle: []
+
             // categories: {
             //     '1B': 'Singles',
             //     '2B': 'Doubles',
@@ -47757,7 +47764,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "form",
     [
       _vm._l(_vm.categories, function(category) {
         return _c("div", [
@@ -47770,7 +47777,47 @@ var render = function() {
             [
               _c("label", { staticClass: "btn btn-secondary stats" }, [
                 _c("input", {
-                  attrs: { type: "checkbox", autocomplete: "off" }
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.toggle,
+                      expression: "toggle"
+                    }
+                  ],
+                  attrs: {
+                    type: "checkbox",
+                    "true-value": "1",
+                    "false-value": "0",
+                    autocomplete: "off",
+                    name: "category"
+                  },
+                  domProps: {
+                    checked: Array.isArray(_vm.toggle)
+                      ? _vm._i(_vm.toggle, null) > -1
+                      : _vm._q(_vm.toggle, "1")
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.toggle,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? "1" : "0"
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.toggle = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.toggle = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.toggle = $$c
+                      }
+                    }
+                  }
                 }),
                 _vm._v(" " + _vm._s(category) + "\n            ")
               ])
@@ -47783,9 +47830,14 @@ var render = function() {
         "button",
         {
           staticClass: "submitStats btn btn-outline-success mt-2",
-          attrs: { type: "submit" }
+          attrs: {
+            id: "submitStats",
+            method: "get",
+            action: "/stats",
+            type: "submit"
+          }
         },
-        [_vm._v("Dark")]
+        [_vm._v("Refresh")]
       )
     ],
     2
@@ -47887,7 +47939,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.table {\n    background-color: grey;\n}\n#displayDiv {\n    overflow-y: scroll;\n    display: block;\n    height: 50%;\n    width: 80%;\n}\n", ""]);
+exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 67px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n}\nthead {\n    font-weight: bold;\n    font-size: 1.125rem;\n}\n#totalTD,\n#totalTH {\n    border-left: 1px solid grey;\n    border-right: 1px solid grey;\n    position: relative;\n}\n#buttongroup {\n    margin-top: 60px;\n    min-width: 230px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
 
 // exports
 
@@ -47927,12 +47979,143 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['zscorearray', 'players', 'categories', 'totalarray'],
+
+    props: ['play'],
 
     data: function data() {
-        return {};
+        return {
+            toggle: false,
+            AB: true,
+            LOB: true,
+            PA: false,
+            R: true,
+            H: true,
+            twoB: false,
+            threeB: false,
+            HR: true
+        };
+    },
+
+    methods: {
+        notNull: function notNull(val) {
+            if (val == null) {
+                return 0;
+            }
+            return val;
+        }
+    },
+
+    computed: {
+        total: function total() {
+            var newPlayers = this.play;
+            for (var player in newPlayers) {
+                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA) + this.R * this.notNull(newPlayers[player].R) + this.H * this.notNull(newPlayers[player].H) + this.twoB * this.notNull(newPlayers[player].twoB) + this.threeB * this.notNull(newPlayers[player].threeB) + this.HR * this.notNull(newPlayers[player].HR);
+                newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
+            }
+
+            var sortable = [];
+            for (var key in newPlayers) {
+                if (newPlayers.hasOwnProperty(key)) {
+                    sortable.push([key, newPlayers[key]]);
+                }
+            }
+            sortable.sort(function (a, b) {
+                return b[1].total - a[1].total;
+            });
+
+            var rv = {};
+            for (var i = 0; i < sortable.length; ++i) {
+                rv[sortable[i]] = sortable[i][1];
+            }
+            return rv;
+        }
     }
 });
 
@@ -47944,56 +48127,601 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "displayDiv" } }, [
-    _c("table", { staticClass: "table-dark" }, [
-      _c("thead", [
-        _c(
-          "tr",
-          [
-            _c("th", [_vm._v("Player")]),
-            _vm._v(" "),
-            _c("th", [_vm._v("Position")]),
-            _vm._v(" "),
-            _vm._l(_vm.categories, function(category) {
-              return _c("th", [_vm._v(_vm._s(category))])
-            }),
-            _vm._v(" "),
-            _c("th", [_vm._v("Total")])
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
+  return _c(
+    "div",
+    { staticClass: "row h-100 w-100", attrs: { id: "#wrapper" } },
+    [
       _c(
-        "tbody",
-        _vm._l(_vm.players, function(player, index) {
-          return _c(
-            "tr",
+        "div",
+        {
+          staticClass: "col col-sm-2 btn-group-vertical btn-group-toggle",
+          attrs: { id: "buttongroup" }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.PA == 1 }
+            },
             [
-              _c("td", [_vm._v(_vm._s(player.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(player.position))]),
-              _vm._v(" "),
-              _vm._l(_vm.zscorearray, function(zscores, indexx) {
-                return _c("td", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(zscores[index]) +
-                      "\n                "
-                  )
-                ])
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.PA,
+                    expression: "PA"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "PA",
+                  value: "PA"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.PA)
+                    ? _vm._i(_vm.PA, "PA") > -1
+                    : _vm.PA
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.PA,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "PA",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.PA = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.PA = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.PA = $$c
+                    }
+                  }
+                }
               }),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.totalarray[index]))])
-            ],
-            2
+              _vm._m(0)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.LOB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.LOB,
+                    expression: "LOB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "LOB",
+                  value: "LOB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.LOB)
+                    ? _vm._i(_vm.LOB, "LOB") > -1
+                    : _vm.LOB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.LOB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "LOB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.LOB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.LOB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.LOB = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(1)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.AB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.AB,
+                    expression: "AB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "AB",
+                  value: "AB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.AB)
+                    ? _vm._i(_vm.AB, "AB") > -1
+                    : _vm.AB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.AB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "AB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.AB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.AB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.AB = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(2)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.R == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.R,
+                    expression: "R"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "R",
+                  value: "R"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.R)
+                    ? _vm._i(_vm.R, "R") > -1
+                    : _vm.R
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.R,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "R",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.R = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.R = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.R = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(3)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.H == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.H,
+                    expression: "H"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "H",
+                  value: "H"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.H)
+                    ? _vm._i(_vm.H, "H") > -1
+                    : _vm.H
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.H,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "H",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.H = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.H = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.H = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(4)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.twoB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.twoB,
+                    expression: "twoB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "twoB",
+                  value: "twoB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.twoB)
+                    ? _vm._i(_vm.twoB, "twoB") > -1
+                    : _vm.twoB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.twoB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "twoB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.twoB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.twoB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.twoB = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(5)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.threeB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.threeB,
+                    expression: "threeB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "threeB",
+                  value: "threeB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.threeB)
+                    ? _vm._i(_vm.threeB, "threeB") > -1
+                    : _vm.threeB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.threeB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "threeB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.threeB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.threeB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.threeB = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(6)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.HR == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.HR,
+                    expression: "HR"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "HR",
+                  value: "HR"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.HR)
+                    ? _vm._i(_vm.HR, "HR") > -1
+                    : _vm.HR
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.HR,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "HR",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.HR = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.HR = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.HR = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(7)
+            ]
           )
-        })
-      )
-    ])
-  ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col col-md-10", attrs: { id: "display" } }, [
+        _c(
+          "table",
+          {
+            staticClass:
+              "table table-dark table-striped table-responsive table-hover header-fixed"
+          },
+          [
+            _c("thead", [
+              _c("tr", [
+                _c("th", [_vm._v("Player")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Position")]),
+                _vm._v(" "),
+                _c("th", { attrs: { id: "totalTH" } }, [
+                  _vm._v("Total Z-Score")
+                ]),
+                _vm._v(" "),
+                _vm.AB === true ? _c("th", [_vm._v("AB")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.LOB === true ? _c("th", [_vm._v("LOB")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.PA === true ? _c("th", [_vm._v("PA")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.R === true ? _c("th", [_vm._v("R")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.H === true ? _c("th", [_vm._v("H")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.twoB === true ? _c("th", [_vm._v("2B")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.threeB === true ? _c("th", [_vm._v("3B")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.HR === true ? _c("th", [_vm._v("HR")]) : _vm._e()
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.total, function(player) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(player.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(player.position))]),
+                  _vm._v(" "),
+                  _c("td", { attrs: { id: "totalTD" } }, [
+                    _vm._v(_vm._s(player.total))
+                  ]),
+                  _vm._v(" "),
+                  _vm.AB === true
+                    ? _c("td", [_vm._v(_vm._s(player.AB))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.LOB === true
+                    ? _c("td", [_vm._v(_vm._s(player.LOB))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.PA === true
+                    ? _c("td", [_vm._v(_vm._s(player.PA))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.R === true
+                    ? _c("td", [_vm._v(_vm._s(player.R))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.H === true
+                    ? _c("td", [_vm._v(_vm._s(player.H))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.twoB === true
+                    ? _c("td", [_vm._v(_vm._s(player.twoB))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.threeB === true
+                    ? _c("td", [_vm._v(_vm._s(player.threeB))])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.HR === true
+                    ? _c("td", [_vm._v(_vm._s(player.HR))])
+                    : _vm._e()
+                ])
+              })
+            )
+          ]
+        )
+      ])
+    ]
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Plate Appearances")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Left on Base")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  At Bats")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Runs")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Hits")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Doubles")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Triples")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Home Runs")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
