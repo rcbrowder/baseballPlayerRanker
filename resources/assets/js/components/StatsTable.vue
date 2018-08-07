@@ -63,7 +63,7 @@
 
         </div>
 
-        <div id="display" class="col col-md-10">
+        <div id="display" class="col col-md-9">
 
             <table class="table table-dark table-striped table-responsive table-hover header-fixed">
                 <thead>
@@ -181,9 +181,10 @@
         display: block;
         height: 80%;
         width: 100%;
-        margin-top: 67px;
+        margin-top: 70px;
         position: relative;
         box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);
+        margin-left: 15px;
     }
 
     thead {
@@ -201,8 +202,13 @@
 
 
     #buttongroup {
-        margin-top: 60px;
+        margin-top: 70px;
         min-width: 230px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0px;
+        margin-left: 30px;
+        margin-right: 15px;
     }
 
     #wrapper {
