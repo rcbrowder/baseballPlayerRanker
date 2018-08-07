@@ -11535,3 +11535,13 @@ body {
   max-width: none;
 }
 
+.fa-caret-square-down {
+  color: white;
+  -webkit-transform: scale(1.8);
+          transform: scale(1.8);
+}
+
+.navbar-toggler {
+  border: none;
+}
+
