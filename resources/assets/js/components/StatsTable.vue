@@ -63,7 +63,7 @@
 
         </div>
 
-        <div id="display" class="col col-md-10">
+        <div id="display" class="col col-md-9">
 
             <table class="table table-dark table-striped table-responsive table-hover header-fixed">
                 <thead>
@@ -90,14 +90,22 @@
                         <td>{{ player.position }}</td>
                         <td id="totalTD">{{ player.total }}</td>
 
-                        <td v-if="AB === true">{{ player.AB }}</td>
-                        <td v-if="LOB === true">{{ player.LOB }}</td>
-                        <td v-if="PA === true">{{ player.PA }}</td>
-                        <td v-if="R === true">{{ player.R }}</td>
-                        <td v-if="H === true">{{ player.H }}</td>
-                        <td v-if="twoB === true">{{ player.twoB }}</td>
-                        <td v-if="threeB === true">{{ player.threeB }}</td>
-                        <td v-if="HR === true">{{ player.HR }}</td>
+                        <td v-if="AB === true" :class="{'text-success': player.AB > 0.5, 'text-danger': player.AB < -0.5}">{{ player.AB }}</td>
+
+                        <td v-if="LOB === true" :class="{'text-success': player.LOB > 0.60, 'text-danger': player.LOB < -0.60}">{{ player.LOB }}</td>
+
+                        <td v-if="PA === true" :class="{'text-success': player.PA > 0.60, 'text-danger': player.PA < -0.60}">{{ player.PA }}</td>
+
+                        <td v-if="R === true":class="{'text-success': player.R > 0.60, 'text-danger': player.R < -0.60}">{{ player.R }}</td>
+
+                        <td v-if="H === true" :class="{'text-success': player.H > 0.60, 'text-danger': player.H < -0.60}">{{ player.H }}</td>
+
+                        <td v-if="twoB === true" :class="{'text-success': player.twoB > 0.60, 'text-danger': player.twoB < -0.60}">{{ player.twoB }}</td>
+
+                        <td v-if="threeB === true" :class="{'text-success': player.threeB > 0.60, 'text-danger': player.threeB < -0.60}">{{ player.threeB }}</td>
+
+                        <td v-if="HR === true" :class="{'text-success': player.HR > 0.6, 'text-danger': player.HR < -0.6}">{{ player.HR }}</td>
+
 
                     </tr>
                 </tbody>
@@ -136,6 +144,14 @@
                 }
                 return val;
             },
+
+            color: function(val) {
+                if (val >= 0.5) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
 
 
@@ -181,9 +197,10 @@
         display: block;
         height: 80%;
         width: 100%;
-        margin-top: 67px;
+        margin-top: 70px;
         position: relative;
         box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);
+        margin-left: 15px;
     }
 
     thead {
@@ -201,8 +218,13 @@
 
 
     #buttongroup {
-        margin-top: 60px;
+        margin-top: 70px;
         min-width: 230px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0px;
+        margin-left: 30px;
+        margin-right: 15px;
     }
 
     #wrapper {

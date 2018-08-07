@@ -47939,7 +47939,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 67px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n}\nthead {\n    font-weight: bold;\n    font-size: 1.125rem;\n}\n#totalTD,\n#totalTH {\n    border-left: 1px solid grey;\n    border-right: 1px solid grey;\n    position: relative;\n}\n#buttongroup {\n    margin-top: 60px;\n    min-width: 230px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
+exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 70px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-left: 15px;\n}\nthead {\n    font-weight: bold;\n    font-size: 1.125rem;\n}\n#totalTD,\n#totalTH {\n    border-left: 1px solid grey;\n    border-right: 1px solid grey;\n    position: relative;\n}\n#buttongroup {\n    margin-top: 70px;\n    min-width: 230px;\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    padding: 0px;\n    margin-left: 30px;\n    margin-right: 15px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
 
 // exports
 
@@ -47950,6 +47950,14 @@ exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -48089,6 +48097,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return 0;
             }
             return val;
+        },
+
+        color: function color(val) {
+            if (val >= 0.5) {
+                return true;
+            } else {
+                return false;
+            }
         }
     },
 
@@ -48568,7 +48584,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col col-md-10", attrs: { id: "display" } }, [
+      _c("div", { staticClass: "col col-md-9", attrs: { id: "display" } }, [
         _c(
           "table",
           {
@@ -48617,35 +48633,107 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm.AB === true
-                    ? _c("td", [_vm._v(_vm._s(player.AB))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.AB > 0.5,
+                            "text-danger": player.AB < -0.5
+                          }
+                        },
+                        [_vm._v(_vm._s(player.AB))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.LOB === true
-                    ? _c("td", [_vm._v(_vm._s(player.LOB))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.LOB > 0.6,
+                            "text-danger": player.LOB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.LOB))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.PA === true
-                    ? _c("td", [_vm._v(_vm._s(player.PA))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.PA > 0.6,
+                            "text-danger": player.PA < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.PA))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.R === true
-                    ? _c("td", [_vm._v(_vm._s(player.R))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.R > 0.6,
+                            "text-danger": player.R < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.R))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.H === true
-                    ? _c("td", [_vm._v(_vm._s(player.H))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.H > 0.6,
+                            "text-danger": player.H < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.H))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.twoB === true
-                    ? _c("td", [_vm._v(_vm._s(player.twoB))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.twoB > 0.6,
+                            "text-danger": player.twoB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.twoB))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.threeB === true
-                    ? _c("td", [_vm._v(_vm._s(player.threeB))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.threeB > 0.6,
+                            "text-danger": player.threeB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.threeB))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.HR === true
-                    ? _c("td", [_vm._v(_vm._s(player.HR))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.HR > 0.6,
+                            "text-danger": player.HR < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.HR))]
+                      )
                     : _vm._e()
                 ])
               })

@@ -83,7 +83,7 @@ transition-duration: .3s;
     background-image: url(https://cdn-images-1.medium.com/max/1280/1*luSmy-qRh-0Ij5XfMhFjsw.jpeg);
     background-size: cover;
     background-position: 25%;
-    transition: all 3s ease;
+    transition: all 2s ease;
     z-index: 1;
 }
 
@@ -93,7 +93,7 @@ transition-duration: .3s;
     background-image: url(https://cdn-s3.si.com/styles/marquee_large_2x/s3/images/GettyImages-866042018.jpg?itok=yNdOvOWi);
     background-size: cover;
     background-position: center;
-    transition: all 3s ease;
+    transition: all 2s ease;
     z-index: 1;
 }
 
@@ -156,4 +156,17 @@ transition-duration: .3s;
 
 .ref {
     max-width: none;
+}
+
+.fa-caret-square-down {
+    color: white;
+    transform: scale(1.8);
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.darkgreen {
+    color: darkgreen;
 }
