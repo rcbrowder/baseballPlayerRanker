@@ -11517,8 +11517,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-filter: blur(9px);
-          filter: blur(9px);
+  -webkit-filter: blur(7px);
+          filter: blur(7px);
 }
 
 .content,

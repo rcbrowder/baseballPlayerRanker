@@ -48082,11 +48082,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             toggle: false,
             AB: true,
             LOB: true,
-            PA: false,
+            PA: true,
             R: true,
             H: true,
-            twoB: false,
-            threeB: false,
+            twoB: true,
+            threeB: true,
             HR: true
         };
     },

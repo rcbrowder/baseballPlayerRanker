@@ -223,7 +223,7 @@ class UpdateDB implements ShouldQueue
     public function zscore($value, $avg, $sd) {
 
         if ($sd == 0) { return 0;}
-        
+
         return ($value - $avg) / $sd;
     }
 }
