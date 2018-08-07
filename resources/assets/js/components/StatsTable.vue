@@ -70,7 +70,7 @@
                     <tr>
                         <th>Player</th>
                         <th>Position</th>
-                        <th>Total Z-Score</th>
+                        <th id="totalTH">Total Z-Score</th>
                         <!-- <th v-for="cat in catArray" v-if="cat === true">{{cat}}</th> -->
                         <th v-if="AB === true">AB</th>
                         <th v-if="LOB === true">LOB</th>
@@ -88,7 +88,7 @@
                     <tr v-for="player in total">
                         <td>{{ player.name }}</td>
                         <td>{{ player.position }}</td>
-                        <td>{{ player.total }}</td>
+                        <td id="totalTD">{{ player.total }}</td>
 
                         <td v-if="AB === true">{{ player.AB }}</td>
                         <td v-if="LOB === true">{{ player.LOB }}</td>
@@ -185,6 +185,20 @@
         position: relative;
         box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);
     }
+
+    thead {
+        font-weight: bold;
+        font-size: 1.125rem;
+    }
+
+    #totalTD,
+    #totalTH {
+        border-left: 1px solid grey;
+        border-right: 1px solid grey;
+        position: relative;
+    }
+
+
 
     #buttongroup {
         margin-top: 60px;

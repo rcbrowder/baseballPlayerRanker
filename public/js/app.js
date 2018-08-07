@@ -47939,7 +47939,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 67px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n}\n#buttongroup {\n    margin-top: 60px;\n    min-width: 230px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
+exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 67px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n}\nthead {\n    font-weight: bold;\n    font-size: 1.125rem;\n}\n#totalTD,\n#totalTH {\n    border-left: 1px solid grey;\n    border-right: 1px solid grey;\n    position: relative;\n}\n#buttongroup {\n    margin-top: 60px;\n    min-width: 230px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
 
 // exports
 
@@ -48582,7 +48582,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("th", [_vm._v("Position")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Total Z-Score")]),
+                _c("th", { attrs: { id: "totalTH" } }, [
+                  _vm._v("Total Z-Score")
+                ]),
                 _vm._v(" "),
                 _vm.AB === true ? _c("th", [_vm._v("AB")]) : _vm._e(),
                 _vm._v(" "),
@@ -48610,7 +48612,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(player.position))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(player.total))]),
+                  _c("td", { attrs: { id: "totalTD" } }, [
+                    _vm._v(_vm._s(player.total))
+                  ]),
                   _vm._v(" "),
                   _vm.AB === true
                     ? _c("td", [_vm._v(_vm._s(player.AB))])
