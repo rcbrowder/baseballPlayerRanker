@@ -90,14 +90,22 @@
                         <td>{{ player.position }}</td>
                         <td id="totalTD">{{ player.total }}</td>
 
-                        <td v-if="AB === true">{{ player.AB }}</td>
-                        <td v-if="LOB === true">{{ player.LOB }}</td>
-                        <td v-if="PA === true">{{ player.PA }}</td>
-                        <td v-if="R === true">{{ player.R }}</td>
-                        <td v-if="H === true">{{ player.H }}</td>
-                        <td v-if="twoB === true">{{ player.twoB }}</td>
-                        <td v-if="threeB === true">{{ player.threeB }}</td>
-                        <td v-if="HR === true">{{ player.HR }}</td>
+                        <td v-if="AB === true" :class="{'text-success': player.AB > 0.60, 'text-danger': player.AB < -0.60}">{{ player.AB }}</td>
+
+                        <td v-if="LOB === true" :class="{'text-success': player.LOB > 0.60, 'text-danger': player.LOB < -0.60}">{{ player.LOB }}</td>
+
+                        <td v-if="PA === true" :class="{'text-success': player.PA > 0.60, 'text-danger': player.PA < -0.60}">{{ player.PA }}</td>
+
+                        <td v-if="R === true":class="{'text-success': player.R > 0.60, 'text-danger': player.R < -0.60}">{{ player.R }}</td>
+
+                        <td v-if="H === true" :class="{'text-success': player.H > 0.60, 'text-danger': player.H < -0.60}">{{ player.H }}</td>
+
+                        <td v-if="twoB === true" :class="{'text-success': player.twoB > 0.60, 'text-danger': player.twoB < -0.60}">{{ player.twoB }}</td>
+
+                        <td v-if="threeB === true" :class="{'text-success': player.threeB > 0.60, 'text-danger': player.threeB < -0.60}">{{ player.threeB }}</td>
+
+                        <td v-if="HR === true" :class="{'text-success': player.HR > 0.60, 'text-danger': player.HR < -0.60}">{{ player.HR }}</td>
+
 
                     </tr>
                 </tbody>
@@ -136,6 +144,14 @@
                 }
                 return val;
             },
+
+            color: function(val) {
+                if (val >= 0.5) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
 
 

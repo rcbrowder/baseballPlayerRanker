@@ -48064,6 +48064,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -48089,6 +48097,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return 0;
             }
             return val;
+        },
+
+        color: function color(val) {
+            if (val >= 0.5) {
+                return true;
+            } else {
+                return false;
+            }
         }
     },
 
@@ -48617,35 +48633,107 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _vm.AB === true
-                    ? _c("td", [_vm._v(_vm._s(player.AB))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.AB > 0.6,
+                            "text-danger": player.AB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.AB))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.LOB === true
-                    ? _c("td", [_vm._v(_vm._s(player.LOB))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.LOB > 0.6,
+                            "text-danger": player.LOB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.LOB))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.PA === true
-                    ? _c("td", [_vm._v(_vm._s(player.PA))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.PA > 0.6,
+                            "text-danger": player.PA < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.PA))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.R === true
-                    ? _c("td", [_vm._v(_vm._s(player.R))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.R > 0.6,
+                            "text-danger": player.R < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.R))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.H === true
-                    ? _c("td", [_vm._v(_vm._s(player.H))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.H > 0.6,
+                            "text-danger": player.H < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.H))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.twoB === true
-                    ? _c("td", [_vm._v(_vm._s(player.twoB))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.twoB > 0.6,
+                            "text-danger": player.twoB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.twoB))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.threeB === true
-                    ? _c("td", [_vm._v(_vm._s(player.threeB))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.threeB > 0.6,
+                            "text-danger": player.threeB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.threeB))]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.HR === true
-                    ? _c("td", [_vm._v(_vm._s(player.HR))])
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.HR > 0.6,
+                            "text-danger": player.HR < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.HR))]
+                      )
                     : _vm._e()
                 ])
               })
