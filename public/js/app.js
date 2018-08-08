@@ -47939,7 +47939,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 70px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-left: 15px;\n}\nthead {\n    font-weight: bold;\n    font-size: 1.125rem;\n}\n#totalTD,\n#totalTH {\n    border-left: 1px solid grey;\n    border-right: 1px solid grey;\n    position: relative;\n}\n#buttongroup {\n    margin-top: 70px;\n    min-width: 230px;\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    padding: 0px;\n    margin-left: 30px;\n    margin-right: 15px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 5%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
+exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n    height: 80%;\n    width: 100%;\n    margin-top: 70px;\n    position: relative;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-left: 15px;\n}\nthead {\n    font-weight: bold;\n    font-size: 1.125rem;\n}\n#totalTD,\n#totalTH {\n    border-left: 1px solid grey;\n    border-right: 1px solid grey;\n    position: relative;\n}\n#buttongroup {\n    margin-top: 70px;\n    min-width: 230px;\n    -webkit-box-align: start;\n        -ms-flex-align: start;\n            align-items: flex-start;\n    -webkit-box-pack: start;\n        -ms-flex-pack: start;\n            justify-content: flex-start;\n    padding: 0px;\n    margin-left: 30px;\n    margin-right: 15px;\n}\n#wrapper {\n    height: 100%;\n    width: 100%;\n    padding-left: 0px;\n}\n.btn-secondary:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active,\n.show>.btn-secondary.dropdown-toggle {\n    background-color: #404040;\n}\nth,\ntd {\n    width: 6%;\n}\n.p-outline {\n    padding: 15px;\n    width: 100%;\n    -webkit-box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n            box-shadow: 1px 25px 15px rgb(0, 0, 0, 0.7);\n    margin-right: 0px;\n}\n", ""]);
 
 // exports
 
@@ -47950,6 +47950,25 @@ exports.push([module.i, "\ntable {\n    overflow: scroll;\n    display: block;\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -48108,7 +48127,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             threeB: true,
             HR: true,
             RBI: true,
-            BB: true
+            BB: true,
+            SB: true,
+            AVG: true
         };
     },
 
@@ -48133,7 +48154,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         total: function total() {
             var newPlayers = this.play;
             for (var player in newPlayers) {
-                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA) + this.R * this.notNull(newPlayers[player].R) + this.H * this.notNull(newPlayers[player].H) + this.twoB * this.notNull(newPlayers[player].twoB) + this.threeB * this.notNull(newPlayers[player].threeB) + this.HR * this.notNull(newPlayers[player].HR) + this.RBI * this.notNull(newPlayers[player].RBI) + this.BB * this.notNull(newPlayers[player].BB);
+                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA) + this.R * this.notNull(newPlayers[player].R) + this.H * this.notNull(newPlayers[player].H) + this.twoB * this.notNull(newPlayers[player].twoB) + this.threeB * this.notNull(newPlayers[player].threeB) + this.HR * this.notNull(newPlayers[player].HR) + this.RBI * this.notNull(newPlayers[player].RBI) + this.BB * this.notNull(newPlayers[player].BB) + this.SB * this.notNull(newPlayers[player].SB) + this.AVG * this.notNull(newPlayers[player].AVG);
                 newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
             }
 
@@ -48709,6 +48730,114 @@ var render = function() {
               _vm._v(" "),
               _vm._m(9)
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.SB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.SB,
+                    expression: "SB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "SB",
+                  value: "SB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.SB)
+                    ? _vm._i(_vm.SB, "SB") > -1
+                    : _vm.SB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.SB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "SB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.SB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.SB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.SB = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(10)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.AVG == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.AVG,
+                    expression: "AVG"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "AVG",
+                  value: "AVG"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.AVG)
+                    ? _vm._i(_vm.AVG, "AVG") > -1
+                    : _vm.AVG
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.AVG,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "AVG",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.AVG = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.AVG = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.AVG = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(11)
+            ]
           )
         ]
       ),
@@ -48718,7 +48847,7 @@ var render = function() {
           "table",
           {
             staticClass:
-              "table table-dark table-striped table-responsive table-hover header-fixed"
+              "table table-dark table-striped table-responsive table-hover"
           },
           [
             _c("thead", [
@@ -48747,9 +48876,13 @@ var render = function() {
                 _vm._v(" "),
                 _vm.HR === true ? _c("th", [_vm._v("HR")]) : _vm._e(),
                 _vm._v(" "),
-                _vm.RBI === true ? _c("th", [_vm._v("HR")]) : _vm._e(),
+                _vm.RBI === true ? _c("th", [_vm._v("RBI")]) : _vm._e(),
                 _vm._v(" "),
-                _vm.BB === true ? _c("th", [_vm._v("HR")]) : _vm._e()
+                _vm.BB === true ? _c("th", [_vm._v("BB")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.SB === true ? _c("th", [_vm._v("SB")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.AVG === true ? _c("th", [_vm._v("AVG")]) : _vm._e()
               ])
             ]),
             _vm._v(" "),
@@ -48869,7 +49002,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.HR === true
+                  _vm.RBI === true
                     ? _c(
                         "td",
                         {
@@ -48892,6 +49025,32 @@ var render = function() {
                           }
                         },
                         [_vm._v(_vm._s(player.BB))]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.SB === true
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.SB > 0.6,
+                            "text-danger": player.SB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.SB))]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.AVG === true
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.AVG > 0.6,
+                            "text-danger": player.AVG < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.AVG))]
                       )
                     : _vm._e()
                 ])
@@ -48982,6 +49141,22 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "state p-success" }, [
       _c("label", [_vm._v("  Walks")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Stolen Bases")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Batting Average")])
     ])
   }
 ]

@@ -86,12 +86,11 @@ class StatsController extends Controller
 
 
         $stats = \DB::table('stats')->get();
-        // $stats = $stats->slice(0, 10000);
 
         $categories = $stats->unique('category_id')->pluck('category_id');
 
         $players = \DB::table('players')->get();
-        $players = $players->slice(0,100);
+        $players = $players->slice(0,50);
 
         $allCats = [];
         foreach ($categories as $cat) {
@@ -146,6 +145,11 @@ class StatsController extends Controller
                 'RBI' => $allPlayerStats["RBI"],
 
                 'BB' => $allPlayerStats["BB"],
+
+                'SB' => $allPlayerStats["SB"],
+
+                'AVG' => $allPlayerStats["AVG"],
+
 
                 'total' => 0
             ];
