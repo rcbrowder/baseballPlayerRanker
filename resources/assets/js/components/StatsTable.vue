@@ -61,6 +61,20 @@
                 </div>
             </div>
 
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: RBI == 1}">
+                <input type="checkbox" v-model="RBI" autocomplete="off" name="RBI" value="RBI">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Runs Batted In</label>
+                </div>
+            </div>
+
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: BB == 1}">
+                <input type="checkbox" v-model="BB" autocomplete="off" name="BB" value="BB">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Walks</label>
+                </div>
+            </div>
+
         </div>
 
         <div id="display" class="col col-md-9">
@@ -80,7 +94,8 @@
                         <th v-if="twoB === true">2B</th>
                         <th v-if="threeB === true">3B</th>
                         <th v-if="HR === true">HR</th>
-
+                        <th v-if="RBI === true">HR</th>
+                        <th v-if="BB === true">HR</th>
 
                     </tr>
                 </thead>
@@ -105,6 +120,10 @@
                         <td v-if="threeB === true" :class="{'text-success': player.threeB > 0.60, 'text-danger': player.threeB < -0.60}">{{ player.threeB }}</td>
 
                         <td v-if="HR === true" :class="{'text-success': player.HR > 0.6, 'text-danger': player.HR < -0.6}">{{ player.HR }}</td>
+
+                        <td v-if="HR === true" :class="{'text-success': player.RBI > 0.6, 'text-danger': player.RBI < -0.6}">{{ player.RBI }}</td>
+
+                        <td v-if="BB === true" :class="{'text-success': player.BB > 0.6, 'text-danger': player.BB < -0.6}">{{ player.BB }}</td>
 
 
                     </tr>
@@ -135,6 +154,8 @@
             twoB: true,
             threeB: true,
             HR: true,
+            RBI: true,
+            BB: true,
         }),
 
         methods: {
@@ -166,7 +187,9 @@
                         (this.H * this.notNull(newPlayers[player].H)) +
                         (this.twoB * this.notNull(newPlayers[player].twoB)) +
                         (this.threeB * this.notNull(newPlayers[player].threeB)) +
-                        (this.HR * this.notNull(newPlayers[player].HR));
+                        (this.HR * this.notNull(newPlayers[player].HR)) +
+                        (this.RBI * this.notNull(newPlayers[player].RBI)) +
+                        (this.BB * this.notNull(newPlayers[player].BB));
                     newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
                 }
 

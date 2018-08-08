@@ -48072,6 +48072,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -48087,7 +48106,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             H: true,
             twoB: true,
             threeB: true,
-            HR: true
+            HR: true,
+            RBI: true,
+            BB: true
         };
     },
 
@@ -48112,7 +48133,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         total: function total() {
             var newPlayers = this.play;
             for (var player in newPlayers) {
-                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA) + this.R * this.notNull(newPlayers[player].R) + this.H * this.notNull(newPlayers[player].H) + this.twoB * this.notNull(newPlayers[player].twoB) + this.threeB * this.notNull(newPlayers[player].threeB) + this.HR * this.notNull(newPlayers[player].HR);
+                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA) + this.R * this.notNull(newPlayers[player].R) + this.H * this.notNull(newPlayers[player].H) + this.twoB * this.notNull(newPlayers[player].twoB) + this.threeB * this.notNull(newPlayers[player].threeB) + this.HR * this.notNull(newPlayers[player].HR) + this.RBI * this.notNull(newPlayers[player].RBI) + this.BB * this.notNull(newPlayers[player].BB);
                 newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
             }
 
@@ -48580,6 +48601,114 @@ var render = function() {
               _vm._v(" "),
               _vm._m(7)
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.RBI == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.RBI,
+                    expression: "RBI"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "RBI",
+                  value: "RBI"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.RBI)
+                    ? _vm._i(_vm.RBI, "RBI") > -1
+                    : _vm.RBI
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.RBI,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "RBI",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.RBI = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.RBI = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.RBI = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(8)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.BB == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.BB,
+                    expression: "BB"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "BB",
+                  value: "BB"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.BB)
+                    ? _vm._i(_vm.BB, "BB") > -1
+                    : _vm.BB
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.BB,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "BB",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.BB = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.BB = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.BB = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(9)
+            ]
           )
         ]
       ),
@@ -48616,7 +48745,11 @@ var render = function() {
                 _vm._v(" "),
                 _vm.threeB === true ? _c("th", [_vm._v("3B")]) : _vm._e(),
                 _vm._v(" "),
-                _vm.HR === true ? _c("th", [_vm._v("HR")]) : _vm._e()
+                _vm.HR === true ? _c("th", [_vm._v("HR")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.RBI === true ? _c("th", [_vm._v("HR")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.BB === true ? _c("th", [_vm._v("HR")]) : _vm._e()
               ])
             ]),
             _vm._v(" "),
@@ -48734,6 +48867,32 @@ var render = function() {
                         },
                         [_vm._v(_vm._s(player.HR))]
                       )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.HR === true
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.RBI > 0.6,
+                            "text-danger": player.RBI < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.RBI))]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.BB === true
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.BB > 0.6,
+                            "text-danger": player.BB < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.BB))]
+                      )
                     : _vm._e()
                 ])
               })
@@ -48807,6 +48966,22 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "state p-success" }, [
       _c("label", [_vm._v("  Home Runs")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Runs Batted In")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Walks")])
     ])
   }
 ]
