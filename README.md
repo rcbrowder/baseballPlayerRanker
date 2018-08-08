@@ -8,7 +8,7 @@ The website will let users select specific statistical categories and use up-to-
 ### Prerequisites
 
 npm:
->```json
+```json
 "devDependencies": {
   "axios": "^0.18",
   "bootstrap": "^4.1.0",
@@ -24,7 +24,7 @@ npm:
 ```
 
 composer:
->```json
+```json
 "require": {
     "php": "^7.1.3",
     "fideloper/proxy": "^4.0",
