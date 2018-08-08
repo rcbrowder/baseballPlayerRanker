@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@import url(https://fonts.googleapis.com/css?family=Open+Sans|Share+Tech+Mono);/*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -11395,14 +11395,10 @@ a.text-dark:focus {
   }
 }
 
-@font-face {
-  font-family: KrinkesDecorPERSONAL;
-  src: url("/KrinkesDecorPERSONAL.ttf");
-}
-
 html,
 body {
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #statspage,

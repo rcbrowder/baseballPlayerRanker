@@ -278,12 +278,26 @@
         font-size: 1.125rem;
     }
 
+    th,
+    td {
+        width: 6%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.1em;
+    }
+
+    #totalTD {
+        font-weight: bold;
+    }
+
     #totalTD,
     #totalTH {
         border-left: 1px solid grey;
         border-right: 1px solid grey;
-        position: relative;
+        /* position: relative; */
+        min-width: 140px;
+        text-align: center;
     }
+
 
 
 
@@ -309,10 +323,7 @@
         background-color: #404040;
     }
 
-    th,
-    td {
-        width: 6%;
-    }
+
 
     .p-outline {
         padding: 15px;

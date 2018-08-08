@@ -1,6 +1,7 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Share+Tech+Mono');
 
 // Variables
 @import "variables";
@@ -11,10 +12,6 @@
 // Import pretty pretty-checkbox
 @import '~pretty-checkbox/src/pretty-checkbox.scss';
 
-@font-face {
-    font-family: KrinkesDecorPERSONAL;
-    src: url('/KrinkesDecorPERSONAL.ttf');
-}
 
 
 
@@ -25,6 +22,7 @@
 // }
 html, body {
     height: 100%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #statspage, .grassBG {
