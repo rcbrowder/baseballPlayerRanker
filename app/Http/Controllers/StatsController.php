@@ -150,6 +150,9 @@ class StatsController extends Controller
 
                 'AVG' => $allPlayerStats["AVG"],
 
+                'OBP' => $allPlayerStats["OBP"],
+
+                'SLG' => $allPlayerStats["SLG"],
 
                 'total' => 0
             ];

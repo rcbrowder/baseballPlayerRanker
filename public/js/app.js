@@ -48110,6 +48110,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -48129,7 +48149,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             RBI: true,
             BB: true,
             SB: true,
-            AVG: true
+            AVG: true,
+            OBP: true,
+            SLG: true
         };
     },
 
@@ -48154,7 +48176,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         total: function total() {
             var newPlayers = this.play;
             for (var player in newPlayers) {
-                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA) + this.R * this.notNull(newPlayers[player].R) + this.H * this.notNull(newPlayers[player].H) + this.twoB * this.notNull(newPlayers[player].twoB) + this.threeB * this.notNull(newPlayers[player].threeB) + this.HR * this.notNull(newPlayers[player].HR) + this.RBI * this.notNull(newPlayers[player].RBI) + this.BB * this.notNull(newPlayers[player].BB) + this.SB * this.notNull(newPlayers[player].SB) + this.AVG * this.notNull(newPlayers[player].AVG);
+                var tot = this.AB * this.notNull(newPlayers[player].AB) + this.LOB * this.notNull(newPlayers[player].LOB) + this.PA * this.notNull(newPlayers[player].PA) + this.R * this.notNull(newPlayers[player].R) + this.H * this.notNull(newPlayers[player].H) + this.twoB * this.notNull(newPlayers[player].twoB) + this.threeB * this.notNull(newPlayers[player].threeB) + this.HR * this.notNull(newPlayers[player].HR) + this.RBI * this.notNull(newPlayers[player].RBI) + this.BB * this.notNull(newPlayers[player].BB) + this.SB * this.notNull(newPlayers[player].SB) + this.AVG * this.notNull(newPlayers[player].AVG) + this.OBP * this.notNull(newPlayers[player].OBP) + this.SLG * this.notNull(newPlayers[player].SLG);
                 newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
             }
 
@@ -48838,6 +48860,114 @@ var render = function() {
               _vm._v(" "),
               _vm._m(11)
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.OBP == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.OBP,
+                    expression: "OBP"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "OBP",
+                  value: "OBP"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.OBP)
+                    ? _vm._i(_vm.OBP, "OBP") > -1
+                    : _vm.OBP
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.OBP,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "OBP",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.OBP = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.OBP = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.OBP = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(12)
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "btn-secondary pretty p-switch p-outline",
+              class: { active: _vm.SLG == 1 }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.SLG,
+                    expression: "SLG"
+                  }
+                ],
+                attrs: {
+                  type: "checkbox",
+                  autocomplete: "off",
+                  name: "SLG",
+                  value: "SLG"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.SLG)
+                    ? _vm._i(_vm.SLG, "SLG") > -1
+                    : _vm.SLG
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.SLG,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "SLG",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.SLG = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.SLG = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.SLG = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm._m(13)
+            ]
           )
         ]
       ),
@@ -48882,7 +49012,11 @@ var render = function() {
                 _vm._v(" "),
                 _vm.SB === true ? _c("th", [_vm._v("SB")]) : _vm._e(),
                 _vm._v(" "),
-                _vm.AVG === true ? _c("th", [_vm._v("AVG")]) : _vm._e()
+                _vm.AVG === true ? _c("th", [_vm._v("AVG")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.OBP === true ? _c("th", [_vm._v("OBP")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.SLG === true ? _c("th", [_vm._v("SLG")]) : _vm._e()
               ])
             ]),
             _vm._v(" "),
@@ -49052,6 +49186,32 @@ var render = function() {
                         },
                         [_vm._v(_vm._s(player.AVG))]
                       )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.OBP === true
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.OBP > 0.6,
+                            "text-danger": player.OBP < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.OBP))]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.AVG === true
+                    ? _c(
+                        "td",
+                        {
+                          class: {
+                            "text-success": player.SLG > 0.6,
+                            "text-danger": player.SLG < -0.6
+                          }
+                        },
+                        [_vm._v(_vm._s(player.SLG))]
+                      )
                     : _vm._e()
                 ])
               })
@@ -49157,6 +49317,22 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "state p-success" }, [
       _c("label", [_vm._v("  Batting Average")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  On Base Percentage")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "state p-success" }, [
+      _c("label", [_vm._v("  Slugging Percentage")])
     ])
   }
 ]

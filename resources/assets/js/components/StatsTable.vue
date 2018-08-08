@@ -88,6 +88,20 @@
                 </div>
             </div>
 
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: OBP == 1}">
+                <input type="checkbox" v-model="OBP" autocomplete="off" name="OBP" value="OBP">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;On Base Percentage</label>
+                </div>
+            </div>
+
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: SLG == 1}">
+                <input type="checkbox" v-model="SLG" autocomplete="off" name="SLG" value="SLG">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Slugging Percentage</label>
+                </div>
+            </div>
+
         </div>
 
         <div id="display" class="col col-md-9">
@@ -111,6 +125,8 @@
                         <th v-if="BB === true">BB</th>
                         <th v-if="SB === true">SB</th>
                         <th v-if="AVG === true">AVG</th>
+                        <th v-if="OBP === true">OBP</th>
+                        <th v-if="SLG === true">SLG</th>
 
                     </tr>
                 </thead>
@@ -143,6 +159,10 @@
                         <td v-if="SB === true" :class="{'text-success': player.SB > 0.6, 'text-danger': player.SB < -0.6}">{{ player.SB }}</td>
 
                         <td v-if="AVG === true" :class="{'text-success': player.AVG > 0.6, 'text-danger': player.AVG < -0.6}">{{ player.AVG }}</td>
+
+                        <td v-if="OBP === true" :class="{'text-success': player.OBP > 0.6, 'text-danger': player.OBP < -0.6}">{{ player.OBP }}</td>
+
+                        <td v-if="AVG === true" :class="{'text-success': player.SLG > 0.6, 'text-danger': player.SLG < -0.6}">{{ player.SLG }}</td>
 
 
                     </tr>
@@ -177,6 +197,8 @@
             BB: true,
             SB: true,
             AVG: true,
+            OBP: true,
+            SLG: true,
         }),
 
         methods: {
@@ -212,7 +234,9 @@
                         (this.RBI * this.notNull(newPlayers[player].RBI)) +
                         (this.BB * this.notNull(newPlayers[player].BB)) +
                         (this.SB * this.notNull(newPlayers[player].SB)) +
-                        (this.AVG * this.notNull(newPlayers[player].AVG));
+                        (this.AVG * this.notNull(newPlayers[player].AVG)) +
+                        (this.OBP * this.notNull(newPlayers[player].OBP)) +
+                        (this.SLG * this.notNull(newPlayers[player].SLG));
                     newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
                 }
 
