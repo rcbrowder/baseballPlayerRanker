@@ -18,7 +18,6 @@
                 </div>
             </div>
 
-
             <div class="btn-secondary pretty p-switch p-outline" :class="{active: AB == 1}">
                 <input type="checkbox" v-model="AB" autocomplete="off" name="AB" value="AB">
                 <div class="state p-success">
@@ -61,11 +60,53 @@
                 </div>
             </div>
 
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: RBI == 1}">
+                <input type="checkbox" v-model="RBI" autocomplete="off" name="RBI" value="RBI">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Runs Batted In</label>
+                </div>
+            </div>
+
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: BB == 1}">
+                <input type="checkbox" v-model="BB" autocomplete="off" name="BB" value="BB">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Walks</label>
+                </div>
+            </div>
+
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: SB == 1}">
+                <input type="checkbox" v-model="SB" autocomplete="off" name="SB" value="SB">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Stolen Bases</label>
+                </div>
+            </div>
+
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: AVG == 1}">
+                <input type="checkbox" v-model="AVG" autocomplete="off" name="AVG" value="AVG">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Batting Average</label>
+                </div>
+            </div>
+
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: OBP == 1}">
+                <input type="checkbox" v-model="OBP" autocomplete="off" name="OBP" value="OBP">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;On Base Percentage</label>
+                </div>
+            </div>
+
+            <div class="btn-secondary pretty p-switch p-outline" :class="{active: SLG == 1}">
+                <input type="checkbox" v-model="SLG" autocomplete="off" name="SLG" value="SLG">
+                <div class="state p-success">
+                    <label>&nbsp;&nbsp;Slugging Percentage</label>
+                </div>
+            </div>
+
         </div>
 
         <div id="display" class="col col-md-9">
 
-            <table class="table table-dark table-striped table-responsive table-hover header-fixed">
+            <table class="table table-dark table-striped table-responsive table-hover">
                 <thead>
                     <tr>
                         <th>Player</th>
@@ -80,7 +121,12 @@
                         <th v-if="twoB === true">2B</th>
                         <th v-if="threeB === true">3B</th>
                         <th v-if="HR === true">HR</th>
-
+                        <th v-if="RBI === true">RBI</th>
+                        <th v-if="BB === true">BB</th>
+                        <th v-if="SB === true">SB</th>
+                        <th v-if="AVG === true">AVG</th>
+                        <th v-if="OBP === true">OBP</th>
+                        <th v-if="SLG === true">SLG</th>
 
                     </tr>
                 </thead>
@@ -105,6 +151,18 @@
                         <td v-if="threeB === true" :class="{'text-success': player.threeB > 0.60, 'text-danger': player.threeB < -0.60}">{{ player.threeB }}</td>
 
                         <td v-if="HR === true" :class="{'text-success': player.HR > 0.6, 'text-danger': player.HR < -0.6}">{{ player.HR }}</td>
+
+                        <td v-if="RBI === true" :class="{'text-success': player.RBI > 0.6, 'text-danger': player.RBI < -0.6}">{{ player.RBI }}</td>
+
+                        <td v-if="BB === true" :class="{'text-success': player.BB > 0.6, 'text-danger': player.BB < -0.6}">{{ player.BB }}</td>
+
+                        <td v-if="SB === true" :class="{'text-success': player.SB > 0.6, 'text-danger': player.SB < -0.6}">{{ player.SB }}</td>
+
+                        <td v-if="AVG === true" :class="{'text-success': player.AVG > 0.6, 'text-danger': player.AVG < -0.6}">{{ player.AVG }}</td>
+
+                        <td v-if="OBP === true" :class="{'text-success': player.OBP > 0.6, 'text-danger': player.OBP < -0.6}">{{ player.OBP }}</td>
+
+                        <td v-if="AVG === true" :class="{'text-success': player.SLG > 0.6, 'text-danger': player.SLG < -0.6}">{{ player.SLG }}</td>
 
 
                     </tr>
@@ -135,6 +193,12 @@
             twoB: true,
             threeB: true,
             HR: true,
+            RBI: true,
+            BB: true,
+            SB: true,
+            AVG: true,
+            OBP: true,
+            SLG: true,
         }),
 
         methods: {
@@ -166,7 +230,13 @@
                         (this.H * this.notNull(newPlayers[player].H)) +
                         (this.twoB * this.notNull(newPlayers[player].twoB)) +
                         (this.threeB * this.notNull(newPlayers[player].threeB)) +
-                        (this.HR * this.notNull(newPlayers[player].HR));
+                        (this.HR * this.notNull(newPlayers[player].HR)) +
+                        (this.RBI * this.notNull(newPlayers[player].RBI)) +
+                        (this.BB * this.notNull(newPlayers[player].BB)) +
+                        (this.SB * this.notNull(newPlayers[player].SB)) +
+                        (this.AVG * this.notNull(newPlayers[player].AVG)) +
+                        (this.OBP * this.notNull(newPlayers[player].OBP)) +
+                        (this.SLG * this.notNull(newPlayers[player].SLG));
                     newPlayers[player].total = Number.parseFloat(tot).toFixed(2);
                 }
 
@@ -208,12 +278,26 @@
         font-size: 1.125rem;
     }
 
+    th,
+    td {
+        width: 6%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.1em;
+    }
+
+    #totalTD {
+        font-weight: bold;
+    }
+
     #totalTD,
     #totalTH {
         border-left: 1px solid grey;
         border-right: 1px solid grey;
-        position: relative;
+        /* position: relative; */
+        min-width: 140px;
+        text-align: center;
     }
+
 
 
 
@@ -239,10 +323,7 @@
         background-color: #404040;
     }
 
-    th,
-    td {
-        width: 5%;
-    }
+
 
     .p-outline {
         padding: 15px;

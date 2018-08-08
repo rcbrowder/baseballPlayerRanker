@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 use MySportsFeeds\MySportsFeeds;
 
+use Illuminate\Support\Facades\Log;
+
+
 class StatsController extends Controller
 {
 
@@ -78,46 +81,86 @@ class StatsController extends Controller
     // }
 
     public function refactor() {
+        Log::info('Starting loop: '.microtime());
         $play = [];
 
+
         $stats = \DB::table('stats')->get();
-        // $stats = $stats->slice(0, 10000);
+
+        $categories = $stats->unique('category_id')->pluck('category_id');
 
         $players = \DB::table('players')->get();
-        $players = $players->slice(0,20);
+        $players = $players->slice(0,50);
 
-        $cats = ['AB', 'LOB', 'PA', 'R', 'H'];
+        $allCats = [];
+        foreach ($categories as $cat) {
+            array_push($allCats, $cat);
+        }
 
 
         foreach ($players as $player) {
+            // Do one select that pulls every stat for player_id
+
+            $playerStat = $stats->where('player_id', $player->id);
+
+            // Save in temporary array
+            $allPlayerStats = [];
+
+            $i = 0;
+            foreach ($playerStat as $line) {
+                if ($line) {
+                    $allPlayerStats[$allCats[$i]] = $line->zscore;
+                }
+                else {
+                    $allPlayerStats[$allCats[$i]] = null;
+                }
+                $i++;
+            }
+
+
 
             $play[$player->id] = [
+
                 'name' => $player->name,
                 'position' => $player->position,
 
-                'AB' => $stats->where('player_id', $player->id)->where('category_id', 'AB')->pluck('zscore')->pop(),
+                // Instead of pulling all of these, reference temp array instead
 
-                'LOB' => $stats->where('player_id', $player->id)->where('category_id', 'LOB')->pluck('zscore')->pop(),
+                'AB' => $allPlayerStats["AB"],
 
-                'PA' => $stats->where('player_id', $player->id)->where('category_id', 'PA')->pluck('zscore')->pop(),
+                'LOB' => $allPlayerStats["LOB"],
 
-                'R' => $stats->where('player_id', $player->id)->where('category_id', 'R')->pluck('zscore')->pop(),
+                'PA' => $allPlayerStats["PA"],
 
-                'H' => $stats->where('player_id', $player->id)->where('category_id', 'H')->pluck('zscore')->pop(),
+                'R' => $allPlayerStats["R"],
 
-                'twoB' => $stats->where('player_id', $player->id)->where('category_id', '2B')->pluck('zscore')->pop(),
+                'H' => $allPlayerStats["H"],
 
-                'threeB' => $stats->where('player_id', $player->id)->where('category_id', '3B')->pluck('zscore')->pop(),
+                'twoB' => $allPlayerStats["2B"],
 
-                'HR' => $stats->where('player_id', $player->id)->where('category_id', 'HR')->pluck('zscore')->pop(),
+                'threeB' => $allPlayerStats["3B"],
 
+                'HR' => $allPlayerStats["HR"],
 
+                'RBI' => $allPlayerStats["RBI"],
+
+                'BB' => $allPlayerStats["BB"],
+
+                'SB' => $allPlayerStats["SB"],
+
+                'AVG' => $allPlayerStats["AVG"],
+
+                'OBP' => $allPlayerStats["OBP"],
+
+                'SLG' => $allPlayerStats["SLG"],
 
                 'total' => 0
             ];
         }
 
         $play = collect($play);
+
+        Log::info('Ending loop: '.microtime());
 
         return view('stats', compact('play'));
     }
