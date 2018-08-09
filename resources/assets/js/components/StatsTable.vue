@@ -162,7 +162,7 @@
 
                         <td v-if="OBP === true" :class="{'text-success': player.OBP > 0.6, 'text-danger': player.OBP < -0.6}">{{ player.OBP }}</td>
 
-                        <td v-if="AVG === true" :class="{'text-success': player.SLG > 0.6, 'text-danger': player.SLG < -0.6}">{{ player.SLG }}</td>
+                        <td v-if="SLG === true" :class="{'text-success': player.SLG > 0.6, 'text-danger': player.SLG < -0.6}">{{ player.SLG }}</td>
 
 
                     </tr>

@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'StatsController@refactor')->name('home');
 
 // Route::get('/test', 'MysportsfeedController@insertZscores');
 Route::get('/stats', 'StatsController@refactor');

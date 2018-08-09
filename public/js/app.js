@@ -49201,7 +49201,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.AVG === true
+                  _vm.SLG === true
                     ? _c(
                         "td",
                         {

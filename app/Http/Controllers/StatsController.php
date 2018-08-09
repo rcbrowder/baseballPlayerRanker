@@ -90,7 +90,7 @@ class StatsController extends Controller
         $categories = $stats->unique('category_id')->pluck('category_id');
 
         $players = \DB::table('players')->get();
-        $players = $players->slice(0,50);
+        $players = $players->slice(0,100);
 
         $allCats = [];
         foreach ($categories as $cat) {
