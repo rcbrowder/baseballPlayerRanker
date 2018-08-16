@@ -29,3 +29,10 @@ Route::get('/home', 'StatsController@refactor')->name('home');
 
 // Route::get('/test', 'MysportsfeedController@insertZscores');
 Route::get('/stats', 'StatsController@refactor');
+
+
+// Cheating to get data on Heroku without running job
+Route::get('/apirequest', 'DataController@apiRequest');
+Route::get('/parsestats', 'DataController@parseStats');
+Route::get('/populatestats', 'DataController@populateStats');
+Route::get('insertzscores', 'DataController@insertZscores');
