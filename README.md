@@ -3,6 +3,8 @@
 
 The website will let users select specific statistical categories and use up-to-date live game statistics to rank every professional baseball player based on net z-scores from those categories.
 
+#### [__Demo site__](http://playerranker.herokuapp.com/)
+
 ## Getting Started
 
 ### Prerequisites
